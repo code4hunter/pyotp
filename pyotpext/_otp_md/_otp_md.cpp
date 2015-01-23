@@ -33,7 +33,7 @@ static PyObject* Md_Release(PyObject * self, PyObject * args)
 static PyObject* Md_GetTradingDay(PyObject * self, PyObject * args)
 {
 	CKSOTPMdApi * handle = (CKSOTPMdApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
-	PyObject * ret = Py_BuildValue("s", user->GetTradingDay());
+	PyObject * ret = Py_BuildValue("s", handle->GetTradingDay());
 	return ret;
 }
 
@@ -50,7 +50,7 @@ static PyObject* Md_RegisterFront(PyObject * self, PyObject * args)
 static PyObject* Md_RegisterSpi(PyObject * self, PyObject * args){
 	CKSOTPMdApi * handle = (CKSOTPMdApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
 	PyObject * py_pSpi = PyTuple_GET_ITEM(args, 1);
-	CKSOTPMdApi* pSpi = new md_wrapper(py_pSpi);
+	CKSOTPMdSpi* pSpi = new md_imp(py_pSpi);
 	handle->RegisterSpi(pSpi);
 	Py_INCREF(Py_None);
 	return Py_None;
@@ -113,7 +113,7 @@ static PyObject* Md_ReqUserLogin(PyObject * self, PyObject * args)
 	s = PyString_AsString(PyDict_GetItemString(map,"Password"));
 	strncpy(req.Password, s, sizeof(req.Password)-1);
 	s = PyString_AsString(PyDict_GetItemString(map,"UserProductInfo"));
-	strncpy(req.UserProductInfo, s, sizeof(UserProductInfo.UserProductInfo)-1);
+	strncpy(req.UserProductInfo, s, sizeof(req.UserProductInfo) - 1);
 	s = PyString_AsString(PyDict_GetItemString(map,"MacAddress"));
 	strncpy(req.MacAddress, s, sizeof(req.MacAddress)-1);
 	s = PyString_AsString(PyDict_GetItemString(map,"ClientIPAddress"));
@@ -137,7 +137,7 @@ static PyObject* Md_ReqUserLogout(PyObject * self, PyObject * args)
 
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);
-	PyObject * ret = Py_BuildValue("i", handle->ReqUserLogout(pUserLogout, nRequestID));
+	PyObject * ret = Py_BuildValue("i", handle->ReqUserLogout(&req, nRequestID));
 	return ret;
 }
 
