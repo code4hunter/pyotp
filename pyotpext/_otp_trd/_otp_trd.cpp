@@ -5,15 +5,59 @@
 
 using namespace KingstarAPI;
 
+char _get_map_char(PyObject *map, const char *key)
+{
+	PyObject * v = PyDict_GetItemString(map, key);
+	if (v == NULL) return '\0';
+	char *s = PyString_AsString(v);
+	if (s == NULL) return '\0';
+	if (strlen(s) > 0) return s[0];
+	else return '\0';
+}
+
+void _get_map_string(PyObject *map, const char *key, char *buf, int size)
+{
+	buf[0] = 0;
+	PyObject * v = PyDict_GetItemString(map, key);
+	if (v == NULL) return;
+	char *s = PyString_AsString(v);
+	if (s == NULL) return;
+ 	strncpy(buf, s, size - 1);
+}
+
+double _get_map_double(PyObject *map, const char *key)
+{
+	PyObject * v = PyDict_GetItemString(map, key);
+	if (v == NULL) return 0;
+	double ret = PyFloat_AsDouble(v);
+	if (PyErr_Occurred() != NULL)
+	{
+		ret = 0;
+	}
+	return ret;
+}
+
+int _get_map_int(PyObject *map, const char *key)
+{
+	PyObject * v = PyDict_GetItemString(map, key);
+	if (v == NULL) return 0;
+	int ret =  PyLong_AsLong(v);
+	if (PyErr_Occurred() != NULL)
+	{
+		ret = 0;
+	}
+	return ret;
+}
+
 ///创建TraderApi
 ///@return 创建出的UserApi
 ///@param pszFlowPath 存贮订阅信息文件的目录，默认为当前目录
-static PyObject* createTrdApi(PyObject* self, PyObject *args)
+static PyObject* CreateTrdApi(PyObject* self, PyObject *args)
 {
 	char * pszFlowPath=NULL;
 	PyArg_ParseTuple(args, "s", &pszFlowPath);
 	CKSOTPTraderApi *p = CKSOTPTraderApi::CreateOTPTraderApi(pszFlowPath);
-	return PyInt_FromLong((void*)p);
+	return PyInt_FromLong((long)(void*)p);
 }
 
 ///删除接口对象本身
@@ -109,18 +153,12 @@ static PyObject* ReqUserLogin(PyObject* self, PyObject *args)
 	PyObject * map = PyTuple_GET_ITEM(args, 1);
 	CKSOTPReqUserLoginField req;
 
-	char *s = PyString_AsString(PyDict_GetItemString(map, "BrokerID"));
-	strncpy(req.BrokerID, s, sizeof(req.BrokerID) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "UserID"));
-	strncpy(req.UserID, s, sizeof(req.UserID) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "Password"));
-	strncpy(req.Password, s, sizeof(req.Password) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "UserProductInfo"));
-	strncpy(req.UserProductInfo, s, sizeof(req.UserProductInfo) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "MacAddress"));
-	strncpy(req.MacAddress, s, sizeof(req.MacAddress) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "ClientIPAddress"));
-	strncpy(req.ClientIPAddress, s, sizeof(req.ClientIPAddress) - 1);
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "UserID", req.UserID, sizeof(req.UserID));
+	_get_map_string(map, "Password", req.Password, sizeof(req.Password));
+	_get_map_string(map, "UserProductInfo", req.UserProductInfo, sizeof(req.UserProductInfo));
+	_get_map_string(map, "MacAddress", req.MacAddress, sizeof(req.MacAddress));
+	_get_map_string(map, "ClientIPAddress", req.ClientIPAddress, sizeof(req.ClientIPAddress));
 
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);
@@ -133,11 +171,9 @@ static PyObject* ReqUserLogout(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
 	PyObject * map = PyTuple_GET_ITEM(args, 1);
-	CKSOTPUserLogoutField req;
-	char *s = PyString_AsString(PyDict_GetItemString(map, "BrokerID"));
-	strncpy(req.BrokerID, s, sizeof(req.BrokerID) - 1);
-	s = PyString_AsString(PyDict_GetItemString(map, "UserID"));
-	strncpy(req.UserID, s, sizeof(req.UserID) - 1);
+	CKSOTPUserLogoutField req = { 0 };
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "UserID", req.UserID, sizeof(req.UserID));
 
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);
@@ -152,25 +188,161 @@ static PyObject* ReqUserLogout(PyObject* self, PyObject *args)
 //static PyObject* ReqTradingAccountPasswordUpdate(CKSOTPTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, int nRequestID){}
 
 ///报单录入请求
-static PyObject* ReqOrderInsert(CKSOTPInputOrderField *pInputOrder, int nRequestID){}
+static PyObject* ReqOrderInsert(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPInputOrderField req = { 0 };
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+	_get_map_string(map, "OrderRef", req.OrderRef, sizeof(req.OrderRef));
+	_get_map_string(map, "UserID", req.UserID, sizeof(req.UserID));
+	_get_map_string(map, "GTDDate", req.GTDDate, sizeof(req.GTDDate));
+	_get_map_string(map, "BusinessUnit", req.BusinessUnit, sizeof(req.BusinessUnit));
+
+	req.OrderPriceType = _get_map_char(map, "OrderPriceType");
+	req.OffsetFlag = _get_map_char(map, "OffsetFlag");
+	req.HedgeFlag = _get_map_char(map, "HedgeFlag");
+	req.TimeCondition = _get_map_char(map, "TimeCondition");
+	req.VolumeCondition = _get_map_char(map, "VolumeCondition");
+	req.ContingentCondition = _get_map_char(map, "ContingentCondition");
+
+	req.LimitPrice = _get_map_double(map, "LimitPrice");
+	req.StopPrice = _get_map_double(map, "StopPrice");
+	req.VolumeTotalOriginal = _get_map_int(map, "VolumeTotalOriginal");
+	req.MinVolume = _get_map_int(map, "MinVolume");
+	req.RequestID = _get_map_int(map, "RequestID");
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqOrderInsert(&req, nRequestID));
+	return ret;
+}
 
 ///报单操作请求
-static PyObject* ReqOrderAction(CKSOTPInputOrderActionField *pInputOrderAction, int nRequestID){}
+static PyObject* ReqOrderAction(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPInputOrderActionField req = { 0 };
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "OrderRef", req.OrderRef, sizeof(req.OrderRef));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	_get_map_string(map, "OrderSysID", req.OrderSysID, sizeof(req.OrderSysID));
+	_get_map_string(map, "UserID", req.UserID, sizeof(req.UserID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	req.RequestID = _get_map_int(map, "RequestID");
+	req.FrontID = _get_map_int(map, "FrontID");
+	req.SessionID = _get_map_int(map, "SessionID");
+	req.VolumeChange = _get_map_int(map, "VolumeChange");
+	
+	req.ActionFlag = _get_map_char(map, "ActionFlag");
+	req.LimitPrice = _get_map_double(map, "LimitPrice");
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqOrderAction(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询报单
-static PyObject* ReqQryOrder(CKSOTPQryOrderField *pQryOrder, int nRequestID){}
+static PyObject* ReqQryOrder(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryOrderField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	_get_map_string(map, "OrderSysID", req.OrderSysID, sizeof(req.OrderSysID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryOrder(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询成交
-static PyObject* ReqQryTrade(CKSOTPQryTradeField *pQryTrade, int nRequestID){}
+static PyObject* ReqQryTrade(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryTradeField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+	_get_map_string(map, "TradeTimeStart", req.TradeTimeStart, sizeof(req.TradeTimeStart));
+	_get_map_string(map, "TradeTimeEnd", req.TradeTimeEnd, sizeof(req.TradeTimeEnd));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryTrade(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询投资者持仓
-static PyObject* ReqQryInvestorPosition(CKSOTPQryInvestorPositionField *pQryInvestorPosition, int nRequestID){}
+static PyObject* ReqQryInvestorPosition(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryInvestorPositionField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestorPosition(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询资金账户
-static PyObject* ReqQryTradingAccount(CKSOTPQryTradingAccountField *pQryTradingAccount, int nRequestID){}
+static PyObject* ReqQryTradingAccount(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryTradingAccountField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryTradingAccount(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询投资者
-static PyObject* ReqQryInvestor(CKSOTPQryInvestorField *pQryInvestor, int nRequestID){}
+static PyObject* ReqQryInvestor(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryInvestorField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestor(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询合约账号
 //static PyObject* ReqQryTradingCode(CKSOTPQryTradingCodeField *pQryTradingCode, int nRequestID){}
@@ -179,10 +351,39 @@ static PyObject* ReqQryInvestor(CKSOTPQryInvestorField *pQryInvestor, int nReque
 //static PyObject* ReqQryExchange(CKSOTPQryExchangeField *pQryExchange, int nRequestID){}
 
 ///请求查询合约
-static PyObject* ReqQryInstrument(CKSOTPQryInstrumentField *pQryInstrument, int nRequestID){}
+static PyObject* ReqQryInstrument(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryInstrumentField req;
+
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInstrument(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询投资者持仓明细
-static PyObject* ReqQryInvestorPositionDetail(CKSOTPQryInvestorPositionDetailField *pQryInvestorPositionDetail, int nRequestID){}
+static PyObject* ReqQryInvestorPositionDetail(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryInvestorPositionDetailField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestorPositionDetail(&req, nRequestID));
+	return ret;
+}
 
 ///请求查询交易通知
 //static PyObject* ReqQryTradingNotice(CKSOTPQryTradingNoticeField *pQryTradingNotice, int nRequestID){}
@@ -203,10 +404,40 @@ static PyObject* ReqQryInvestorPositionDetail(CKSOTPQryInvestorPositionDetailFie
 //static PyObject* ReqQryUnderlyingStockInfo(CKSOTPQryUnderlyingStockInfoField *pQryOTPOrderParams, int nRequestID){}
 
 ///查询个股期权手续费率请求
-static PyObject* ReqQryOTPInsCommRate(CKSOTPQryOTPInsCommRateField *pQryOTPInsCommRate, int nRequestID){}
+static PyObject* ReqQryOTPInsCommRate(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryOTPInsCommRateField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryOTPInsCommRate(&req, nRequestID));
+	return ret;
+}
 
 ///查询个股期权保证金率请求
-static PyObject* ReqQryOTPInsMarginRate(CKSOTPQryOTPInsMarginRateField *pQryOTPInsMarginRate, int nRequestID){}
+static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryOTPInsMarginRateField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryOTPInsMarginRate(&req, nRequestID));
+	return ret;
+}
 
 ///查询个股行权指派信息
 //static PyObject* ReqQryOTPAssignment(CKSOTPQryOTPAssignmentField *pQryOTPAssignment, int nRequestID){}
@@ -239,7 +470,22 @@ static PyObject* ReqQryOTPInsMarginRate(CKSOTPQryOTPInsMarginRateField *pQryOTPI
 //static PyObject* ReqQrySettlementInfo(CKSOTPQrySettlementInfoField *pQrySettlementInfo, int nRequestID){}
 
 ///查询客户交易级别
-static PyObject* ReqQryInvestorTradeLevel(CKSOTPQryInvestorTradeLevelField *pQryInvestorTradeLevel, int nRequestID){}
+static PyObject* ReqQryInvestorTradeLevel(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQryInvestorTradeLevelField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	_get_map_string(map, "ProductID", req.ProductID, sizeof(req.ProductID));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestorTradeLevel(&req, nRequestID));
+	return ret;
+}
 
 ///查询个股限购额度
 //static PyObject* ReqQryPurchaseLimitAmt(CKSOTPQryPurchaseLimitAmtField *pQryPurchaseLimitAmt, int nRequestID){}
@@ -265,14 +511,28 @@ static PyObject* ReqQryInvestorTradeLevel(CKSOTPQryInvestorTradeLevelField *pQry
 extern "C" __declspec(dllexport) void init_otp_trd()
 {
 	static PyMethodDef mbMethods[] = {
-		{ "CreateTrdApi", createTrdApi, METH_VARARGS },
-		{ "ReqUserLogout", ReqUserLogout, METH_VARARGS },
-		{ "RegisterFront", RegisterFront, METH_VARARGS },
-		{ "Init", Init, METH_VARARGS },
-		{ "ReqUserLogin", ReqUserLogin, METH_VARARGS },
-		{ "Release", Release, METH_VARARGS },
+		{ "CreateTrdApi", CreateTrdApi, METH_VARARGS },
 		{ "GetTradingDay", GetTradingDay, METH_VARARGS },
+		{ "Init", Init, METH_VARARGS },
+		{ "RegisterFront", RegisterFront, METH_VARARGS },
 		{ "RegisterSpi", RegisterSpi, METH_VARARGS },
+		{ "Release", Release, METH_VARARGS },
+		{ "ReqOrderAction", ReqOrderAction, METH_VARARGS },
+		{ "ReqOrderInsert", ReqOrderInsert, METH_VARARGS },
+		{ "ReqQryInstrument", ReqQryInstrument, METH_VARARGS },
+		{ "ReqQryInvestor", ReqQryInvestor, METH_VARARGS },
+		{ "ReqQryInvestorPosition", ReqQryInvestorPosition, METH_VARARGS },
+		{ "ReqQryInvestorPositionDetail", ReqQryInvestorPositionDetail, METH_VARARGS },
+		{ "ReqQryInvestorTradeLevel", ReqQryInvestorTradeLevel, METH_VARARGS },
+		{ "ReqQryOrder", ReqQryOrder, METH_VARARGS },
+		{ "ReqQryOTPInsCommRate", ReqQryOTPInsCommRate, METH_VARARGS },
+		{ "ReqQryOTPInsMarginRate", ReqQryOTPInsMarginRate, METH_VARARGS },
+		{ "ReqQryTrade", ReqQryTrade, METH_VARARGS },
+		{ "ReqQryTradingAccount", ReqQryTradingAccount, METH_VARARGS },
+		{ "ReqUserLogin", ReqUserLogin, METH_VARARGS },
+		{ "ReqUserLogout", ReqUserLogout, METH_VARARGS },
+		{ "SubscribePrivateTopic", SubscribePrivateTopic, METH_VARARGS },
+		{ "SubscribePublicTopic", SubscribePublicTopic, METH_VARARGS },
 		{ NULL, NULL, NULL }
 	};
 

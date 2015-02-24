@@ -51,3 +51,5 @@ Temporary Items
 *.suo
 *.suo
 *.suo
+*.idb
+*.opensdf
