@@ -53,3 +53,4 @@ Temporary Items
 *.suo
 *.idb
 *.opensdf
+*.ipch
