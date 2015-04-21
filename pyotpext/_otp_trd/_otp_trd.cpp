@@ -426,7 +426,7 @@ static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
 	PyObject * map = PyTuple_GET_ITEM(args, 1);
-	CKSOTPQryOTPInsMarginRateField req;
+	CKSOTPQryInstrumentMarginRateField req;
 
 	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
 	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
@@ -435,7 +435,7 @@ static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);
 
-	PyObject * ret = Py_BuildValue("i", handle->ReqQryOTPInsMarginRate(&req, nRequestID));
+	PyObject * ret = Py_BuildValue("i", handle->ReqQryInstrumentMarginRate(&req, nRequestID));
 	return ret;
 }
 

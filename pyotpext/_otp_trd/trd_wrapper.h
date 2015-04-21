@@ -135,12 +135,6 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///用户口令更新请求响应
-	virtual void OnRspUserPasswordUpdate(CKSOTPUserPasswordUpdateField *pUserPasswordUpdate, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///资金账户口令更新请求响应
-	virtual void OnRspTradingAccountPasswordUpdate(CKSOTPTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
 	///报单录入请求响应
 	virtual void OnRspOrderInsert(CKSOTPInputOrderField *pInputOrder, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
@@ -446,12 +440,6 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///请求查询合约账号响应
-	virtual void OnRspQryTradingCode(CKSOTPTradingCodeField *pTradingCode, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询交易所响应
-	virtual void OnRspQryExchange(CKSOTPExchangeField *pExchange, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
 	///请求查询合约响应
 	virtual void OnRspQryInstrument(CKSOTPInstrumentField *pInstrument, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
@@ -544,72 +532,6 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///请求查询交易通知响应
-	virtual void OnRspQryTradingNotice(CKSOTPTradingNoticeField *pTradingNotice, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
-	{
-		
-	};
-
-	///非交易报单录入请求响应
-	virtual void OnRspNonTradingOrderInsert(CKSOTPInputNonTradingOrderField *pInputNonTradingOrder, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///非交易报单操作请求响应
-	virtual void OnRspNonTradingOrderAction(CKSOTPInputNonTradingOrderActionField *pInputNonTradingOrderAction, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询非交易报单响应
-	virtual void OnRspQryNonTradingOrder(CKSOTPNonTradingOrderField *pNonTradingOrder, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///查询非交易报单量请求响应
-	virtual void OnRspQryNonTradingOrderVolume(CKSOTPNonTradingOrderVolumeField *pNonTradingOrderVolume, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast){};
-
-	///请求查询标的券信息响应
-	virtual void OnRspQryUnderlyingStockInfo(CKSOTPUnderlyingStockInfoField *pOTPUnderlyingStockInfo, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast){};
-
-	///查询个股期权手续费率请求响应
-	virtual void OnRspQryOTPInsCommRate(CKSOTPOTPInsCommRateField *pOTPInsCommRate, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast){};
-
-	///查询个股期权保证金率请求响应
-	virtual void OnRspQryOTPInsMarginRate(CKSOTPOTPInsMarginRateField *pOTPInsMarginRate, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast){};
-
-	///查询个股行权指派信息请求响应
-	virtual void OnRspQryOTPAssignment(CKSOTPOTPAssignmentField *pOTPAssignment, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询行情响应
-	virtual void OnRspQryDepthMarketData(CKSOTPDepthMarketDataField *pOTPDepthMarketData, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///发起银行资金转证券应答
-	virtual void OnRspFromBankToStockByStock(CKSOTPReqTransferField *pReqTransfer, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///证券发起银行资金转证券通知
-	virtual void OnRtnFromBankToStockByStock(CKSOTPRspTransferField *pRspTransfer) {};
-
-	///证券发起证券资金转银行应答
-	virtual void OnRspFromStockToBankByStock(CKSOTPReqTransferField *pReqTransfer, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///证券发起证券资金转银行通知
-	virtual void OnRtnFromStockToBankByStock(CKSOTPRspTransferField *pRspTransfer) {};
-
-	///证券发起查询银行余额通知
-	virtual void OnRtnQueryBankBalanceByStock(CKSOTPNotifyQueryAccountField *pNotifyQueryAccount) {};
-
-	///请求查询签约银行响应
-	virtual void OnRspQryContractBank(CKSOTPContractBankField *pContractBank, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///证券发起查询银行余额应答
-	virtual void OnRspQueryBankAccountMoneyByStock(CKSOTPReqQueryAccountField *pReqQueryAccount, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询转帐流水响应
-	virtual void OnRspQryTransferSerial(CKSOTPTransferSerialField *pTransferSerial, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询结算信息确认响应
-	virtual void OnRspQrySettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///投资者结算结果确认响应
-	virtual void OnRspSettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询投资者结算结果响应
-	virtual void OnRspQrySettlementInfo(CKSOTPSettlementInfoField *pSettlementInfo, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
 	///查询客户交易级别响应
 	virtual void OnRspQryInvestorTradeLevel(CKSOTPInvestorTradeLevelField *pInvestorTradeLevel, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
 	{
@@ -632,27 +554,6 @@ public:
 
 		PyGILState_Release(gstate);
 	};
-
-	///查询个股限购额度响应
-	virtual void OnRspQryPurchaseLimitAmt(CKSOTPPurchaseLimitAmtField *pPurchaseLimitAmt, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///查询个股限仓额度响应
-	virtual void OnRspQryPositionLimitVol(CKSOTPPositionLimitVolField *pPositionLimitVol, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询历史报单响应
-	virtual void OnRspQryHistoryOrder(CKSOTPHistoryOrderField *pHistoryOrder, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询历史成交响应
-	virtual void OnRspQryHistoryTrade(CKSOTPHistoryTradeField *pHistoryTrade, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询历史行权指派明细响应
-	virtual void OnRspQryHistoryAssignment(CKSOTPHistoryAssignmentField *pHistoryAssignment, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///请求查询行权交割明细响应
-	virtual void OnRspQryDelivDetail(CKSOTPDelivDetailField *pDelivDetail, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
-
-	///自动行权执行操作响应
-	virtual void OnRspAutoExecOrderAction(CKSOTPAutoExecOrderActionField *pAutoExecOrderAction, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) {};
 
 	///错误应答
 	virtual void OnRspError(CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
@@ -782,14 +683,32 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///非交易报单通知
-	virtual void OnRtnNonTradingOrder(CKSOTPNonTradingOrderField *pNonTradingOrder) {};
+	///查询个股期权合约保证金率请求响应
+	virtual void OnRspQryInstrumentMarginRate(CKSOTPInstrumentMarginRateField *pInstrumentMarginRate, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast)
+	{
+		PyGILState_STATE gstate;
+		gstate = PyGILState_Ensure();
 
-	///合约交易状态通知
-	virtual void OnRtnInstrumentStatus(CKSOTPInstrumentStatusField *pInstrumentStatus) {};
+		PyObject *dict = PyDict_New();
+		PyDict_SetItemString(dict, "InstrumentID", Py_BuildValue("s", pInstrumentMarginRate->InstrumentID));
+		PyDict_SetItemString(dict, "InvestorRange", Py_BuildValue("s", pInstrumentMarginRate->InvestorRange));
+		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pInstrumentMarginRate->BrokerID));
+		PyDict_SetItemString(dict, "InvestorID", Py_BuildValue("s", pInstrumentMarginRate->InvestorID));
+		PyDict_SetItemString(dict, "HedgeFlag", Py_BuildValue("c", pInstrumentMarginRate->HedgeFlag));
+		PyDict_SetItemString(dict, "LongMarginRatioByMoney", Py_BuildValue("f", pInstrumentMarginRate->LongMarginRatioByMoney));
+		PyDict_SetItemString(dict, "LongMarginRatioByVolume", Py_BuildValue("f", pInstrumentMarginRate->LongMarginRatioByVolume));
+		PyDict_SetItemString(dict, "ShortMarginRatioByMoney", Py_BuildValue("f", pInstrumentMarginRate->ShortMarginRatioByMoney));
+		PyDict_SetItemString(dict, "ShortMarginRatioByVolume", Py_BuildValue("f", pInstrumentMarginRate->ShortMarginRatioByVolume));
+		PyDict_SetItemString(dict, "IsRelative", Py_BuildValue("i", pInstrumentMarginRate->IsRelative));
+		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInstrumentMarginRate", (char*)"Nisib", dict,
+			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
+		{
+			PyErr_Print();
+		}
+		Py_XDECREF(dict);
 
-	///交易通知
-	virtual void OnRtnTradingNotice(CKSOTPTradingNoticeInfoField *pTradingNoticeInfo) {};
+		PyGILState_Release(gstate);
+	}
 };
 
 #endif

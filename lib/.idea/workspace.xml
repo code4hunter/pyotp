@@ -2,7 +2,75 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="28bdc006-64fd-44c5-9fb5-b6828a0da10a" name="Default" comment="">
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux32\libkslkc32r.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux32\libksotpmarketdataapi.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux32\libksotpmarketdataapi.so.md5sum" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux64\libkslkc64r.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux64\libksotpmarketdataapi.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPMarketAPI\linux64\libksotpmarketdataapi.so.md5sum" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux32\libkslkc32r.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux32\libksotptraderapi.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux32\libksotptraderapi.so.md5sum" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux64\libkslkc64r.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux64\libksotptraderapi.so" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\KSOTPTraderAPI\linux64\libksotptraderapi.so.md5sum" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\doc\金仕达个股期权系统OTP_APIReference1.0.41128.chm" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\inc\KSOTPMdApi.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\inc\KSOTPTraderApi.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\inc\KSOTPUserApiDataType.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\inc\KSOTPUserApiStruct.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\Readme_ksotpmarket.txt" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\Readme_ksotpmarket_en.txt" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\event.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\event.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\makefile" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\testKSOTPMarketAPI.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\testKSOTPMarketAPI.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\testKSOTPMarketAPI.sln" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPMarketAPI\testKSOTPMarketAPI.vcproj" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPTraderAPI\makefile" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPTraderAPI\testKSOTPTraderApi.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPTraderAPI\testKSOTPTraderApi.sln" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Linux\V1.0.41128.0\testKSOTPTraderAPI\testKSOTPTraderApi.vcproj" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\KSOTPMarketAPI\ksotpmarketdataapi.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\KSOTPTraderAPI\ksotptraderapi.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\doc\金仕达个股期权系统OTP_APIReference1.0.41128.chm" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\doc\金仕达个股期权系统OTP_APIReference1.0.41128.chw" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\inc\KSOTPMdApi.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\inc\KSOTPTraderApi.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\inc\KSOTPUserApiDataType.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\inc\KSOTPUserApiStruct.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\SSPXEncode.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\cpack.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\ksPortalAPI.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\ksotpmarketdataapi.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\ksotptraderapi.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\run\lkcdll.dll" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\Backup\testKSOTPMarketAPI.sln" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\Readme_ksotpmarket.txt" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\Readme_ksotpmarket_en.txt" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\UpgradeLog.htm" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\event.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\event.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.h" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.sln" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.v12.suo" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.vcproj" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.vcxproj" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPMarketAPI\testKSOTPMarketAPI.vcxproj.filters" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPTraderAPI\testKSOTPTraderApi.cpp" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPTraderAPI\testKSOTPTraderApi.sln" afterPath="" />
+      <change type="DELETED" beforePath="G:\source\pyotp\OTPAPI\Windows\V1.0.41128.1\testKSOTPTraderAPI\testKSOTPTraderApi.vcproj" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bin/_otp_md.pyd" afterPath="$PROJECT_DIR$/../bin/_otp_md.pyd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_md/_otp_md.v12.suo" afterPath="$PROJECT_DIR$/../pyotpext/_otp_md/_otp_md.v12.suo" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bin/_otp_trd.pyd" afterPath="$PROJECT_DIR$/../bin/_otp_trd.pyd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bin/ksotpmarketdataapi.dll" afterPath="$PROJECT_DIR$/../bin/ksotpmarketdataapi.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bin/ksotptraderapi.dll" afterPath="$PROJECT_DIR$/../bin/ksotptraderapi.dll" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_md/_otp_md.vcxproj" afterPath="$PROJECT_DIR$/../pyotpext/_otp_md/_otp_md.vcxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.cpp" afterPath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.vcxproj" afterPath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.vcxproj" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_trd/trd_wrapper.h" afterPath="$PROJECT_DIR$/../pyotpext/_otp_trd/trd_wrapper.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lib.iws" />
@@ -16,6 +84,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/lib$mdapi.coverage" NAME="mdapi Coverage Results" MODIFIED="1429606683581" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/../bin" />
+  </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
@@ -31,8 +102,8 @@
       <file leaf-file-name="mdapi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/mdapi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.49518305" vertical-offset="508" max-vertical-offset="1695">
-              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.1764706" vertical-offset="0" max-vertical-offset="1695">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
               <folding>
                 <element signature="e#42#56#0" expanded="true" />
               </folding>
@@ -63,10 +134,10 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="157" />
-    <option name="y" value="33" />
-    <option name="width" value="1134" />
-    <option name="height" value="656" />
+    <option name="x" value="54" />
+    <option name="y" value="-8" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -91,7 +162,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -102,6 +172,10 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="External Libraries" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="&lt; Python 2.7.9 (C:\Python27\python.exe) &gt;" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -116,6 +190,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -124,14 +199,36 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/GitHub/PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad/bin/git.exe" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.mdapi">
+    <configuration default="false" name="mdapi" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="lib" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/mdapi.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -320,7 +417,14 @@
       <envs />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.mdapi" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.mdapi" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
@@ -349,24 +453,24 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="157" y="33" width="1134" height="656" extended-state="1" />
-    <editor active="true" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906765" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23971377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20552148" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32906765" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -400,6 +504,16 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/mdapi.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1695">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#42#56#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mdapi.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
@@ -412,7 +526,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -420,7 +533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="647">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -428,14 +540,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="536">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mdapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.49518305" vertical-offset="508" max-vertical-offset="1695">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.1764706" vertical-offset="0" max-vertical-offset="1695">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="e#42#56#0" expanded="true" />
           </folding>
