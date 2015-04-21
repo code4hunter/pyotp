@@ -5,7 +5,11 @@ import _otp_md
 import os
 
 
+<<<<<<< HEAD
 class MarketDataSpi:
+=======
+class MarketSpi:
+>>>>>>> origin/master
 
     def __init__(self):
         self.api = None
@@ -16,6 +20,7 @@ class MarketDataSpi:
     def on_front_connected(self):
         pass
 
+<<<<<<< HEAD
     def on_front_disconnected(self, reason):
         pass
 
@@ -106,3 +111,6 @@ class MarketDataApi:
         ret = _ctp_Md.RegisterSpi(self.api_ptr, pSpi)
         pSpi.register_api(self)
         return ret
+=======
+    def on_
+>>>>>>> origin/master
