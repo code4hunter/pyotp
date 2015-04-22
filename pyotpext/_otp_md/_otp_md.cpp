@@ -33,8 +33,18 @@ static PyObject* Md_Release(PyObject * self, PyObject * args)
 static PyObject* Md_GetTradingDay(PyObject * self, PyObject * args)
 {
 	CKSOTPMdApi * handle = (CKSOTPMdApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
-	PyObject * ret = Py_BuildValue("s", handle->GetTradingDay());
-	return ret;
+	const char *buf = handle->GetTradingDay();
+	if (buf != NULL)
+	{
+		PyObject * ret = Py_BuildValue("s", buf);
+		return ret;
+	}
+	else
+	{
+		Py_INCREF(Py_None);
+		return Py_None;
+	}
+	
 }
 
 static PyObject* Md_RegisterFront(PyObject * self, PyObject * args)
