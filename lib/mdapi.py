@@ -5,11 +5,7 @@ import _otp_md
 import os
 
 
-<<<<<<< HEAD
 class MarketDataSpi:
-=======
-class MarketSpi:
->>>>>>> origin/master
 
     def __init__(self):
         self.api = None
@@ -20,7 +16,6 @@ class MarketSpi:
     def on_front_connected(self):
         pass
 
-<<<<<<< HEAD
     def on_front_disconnected(self, reason):
         pass
 
@@ -61,7 +56,7 @@ class MarketDataApi:
 
     def Join(self, ):
         '''等待接口线程结束运行
-@return 线程退出代码'''
+        @return 线程退出代码'''
         return _ctp_Md.Join(self.api_ptr, )
 
 
@@ -73,14 +68,14 @@ class MarketDataApi:
 
     def RegisterFront(self, pszFrontAddress):
         '''注册前置机网络地址
-@param pszFrontAddress：前置机网络地址。
-@remark 网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:17001”。
-@remark “tcp”代表传输协议，“127.0.0.1”代表服务器地址。”17001”代表服务器端口号。'''
+        @param pszFrontAddress：前置机网络地址。
+        @remark 网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:17001”。
+        @remark “tcp”代表传输协议，“127.0.0.1”代表服务器地址。”17001”代表服务器端口号。'''
         return _ctp_Md.RegisterFront(self.api_ptr, pszFrontAddress)
 
     def Init(self, ):
         '''初始化
-@remark 初始化运行环境,只有调用后,接口才开始工作'''
+        @remark 初始化运行环境,只有调用后,接口才开始工作'''
         return _ctp_Md.Init(self.api_ptr, )
 
     def ReqUserLogin(self, pReqUserLoginField, nRequestID):
@@ -89,13 +84,13 @@ class MarketDataApi:
 
     def Release(self, ):
         '''删除接口对象本身
-@remark 不再使用本接口对象时,调用该函数删除接口对象'''
+        @remark 不再使用本接口对象时,调用该函数删除接口对象'''
         return _ctp_Md.Release(self.api_ptr, )
 
     def GetTradingDay(self, ):
         '''获取当前交易日
-@retrun 获取到的交易日
-@remark 只有登录成功后,才能得到正确的交易日'''
+        @retrun 获取到的交易日
+        @remark 只有登录成功后,才能得到正确的交易日'''
         return _ctp_Md.GetTradingDay(self.api_ptr, )
 
 
@@ -107,10 +102,7 @@ class MarketDataApi:
 
     def RegisterSpi(self, pSpi):
         '''注册回调接口
-@param pSpi 派生自回调接口类的实例'''
+        @param pSpi 派生自回调接口类的实例'''
         ret = _ctp_Md.RegisterSpi(self.api_ptr, pSpi)
         pSpi.register_api(self)
         return ret
-=======
-    def on_
->>>>>>> origin/master
