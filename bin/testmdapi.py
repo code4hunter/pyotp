@@ -1,12 +1,11 @@
 __author__ = 'hua'
 
 import mdapi
-import time
 import os
 
 
 class MyMdSpi(mdapi.MarketDataSpi):
-    def __init__(self, api, instruments, exchange, broker_id, investor_id, password, *args, **kwargs):
+    def __init__(self, api, instruments, exchange, broker_id, investor_id, password):
         self._api = api
         self._exchange = exchange
         self._request_id = 0
@@ -18,13 +17,8 @@ class MyMdSpi(mdapi.MarketDataSpi):
     def on_front_connected(self):
         self._request_id += 1
 
-        param = {}
-        param['BrokerID'] = self._broker_id
-        param['UserID'] = self._investor_id
-        param['Password'] = self._password
-        param['UserProductInfo'] = ''
-        param['MacAddress'] = ''
-        param['ClientIPAddress'] = ''
+        param = {'BrokerID': self._broker_id, 'UserID': self._investor_id, 'Password': self._password,
+                 'UserProductInfo': '', 'MacAddress': '', 'ClientIPAddress': ''}
         self._api.ReqUserLogin(param, self._request_id)
 
     def on_front_disconnected(self, reason, message):
@@ -34,7 +28,7 @@ class MyMdSpi(mdapi.MarketDataSpi):
         print("login", rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last)
         print("login", self._api.GetTradingDay())
         print(rsp_user_login['SystemName'].decode('GBK'))
-        print self._api.SubscribeMarketData(self._instruments)
+        print(self._api.SubscribeMarketData(self._instruments))
 
     def on_rsp_user_logout(self, user_logout, rsp_err_id, rsp_err_msg, request_id, is_last):
         print("logout", user_logout, rsp_err_id, rsp_err_msg, request_id, is_last)
@@ -56,10 +50,10 @@ def run():
     try:
         api = mdapi.MarketDataApi.create_api("log")
         spi = MyMdSpi(api, instruments=['11000071', '11000076'],
-                            exchange='SSE',
-                            broker_id="31000853",
-                            investor_id="20420418",
-                            password="123456")
+                      exchange='SSE',
+                      broker_id="31000853",
+                      investor_id="20420418",
+                      password="123456")
         api.RegisterSpi(spi)
         api.RegisterFront("tcp://116.236.247.173:17996")
         api.Init()
