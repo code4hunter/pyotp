@@ -139,12 +139,6 @@ static PyObject* ReqUserLogout(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///用户口令更新请求
-//static PyObject* ReqUserPasswordUpdate(CKSOTPUserPasswordUpdateField *pUserPasswordUpdate, int nRequestID){}
-
-///资金账户口令更新请求
-//static PyObject* ReqTradingAccountPasswordUpdate(CKSOTPTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, int nRequestID){}
-
 ///报单录入请求
 static PyObject* ReqOrderInsert(PyObject* self, PyObject *args)
 {
@@ -302,12 +296,6 @@ static PyObject* ReqQryInvestor(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///请求查询合约账号
-//static PyObject* ReqQryTradingCode(CKSOTPQryTradingCodeField *pQryTradingCode, int nRequestID){}
-
-///请求查询交易所
-//static PyObject* ReqQryExchange(CKSOTPQryExchangeField *pQryExchange, int nRequestID){}
-
 ///请求查询合约
 static PyObject* ReqQryInstrument(PyObject* self, PyObject *args)
 {
@@ -342,24 +330,6 @@ static PyObject* ReqQryInvestorPositionDetail(PyObject* self, PyObject *args)
 	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestorPositionDetail(&req, nRequestID));
 	return ret;
 }
-
-///请求查询交易通知
-//static PyObject* ReqQryTradingNotice(CKSOTPQryTradingNoticeField *pQryTradingNotice, int nRequestID){}
-
-///非交易报单录入请求
-//static PyObject* ReqNonTradingOrderInsert(CKSOTPInputNonTradingOrderField *pInputNonTradingOrder, int nRequestID){}
-
-///非交易报单操作请求（仅针对行权单）
-//static PyObject* ReqNonTradingOrderAction(CKSOTPInputNonTradingOrderActionField *pInputNonTradingOrderAction, int nRequestID){}
-
-///请求查询非交易报单
-//static PyObject* ReqQryNonTradingOrder(CKSOTPQryNonTradingOrderField *pQryNonTradingOrder, int nRequestID){}
-
-///查询非交易报单量请求
-//static PyObject* ReqQryNonTradingOrderVolume(CKSOTPQryNonTradingOrderVolumeField *pQryNonTradingOrderVolume, int nRequestID){}
-
-///查询标的券信息请求
-//static PyObject* ReqQryUnderlyingStockInfo(CKSOTPQryUnderlyingStockInfoField *pQryOTPOrderParams, int nRequestID){}
 
 ///查询个股期权手续费率请求
 static PyObject* ReqQryOTPInsCommRate(PyObject* self, PyObject *args)
@@ -396,30 +366,6 @@ static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 	PyObject * ret = Py_BuildValue("i", handle->ReqQryInstrumentMarginRate(&req, nRequestID));
 	return ret;
 }
-
-///查询个股行权指派信息
-//static PyObject* ReqQryOTPAssignment(CKSOTPQryOTPAssignmentField *pQryOTPAssignment, int nRequestID){}
-
-///请求查询行情 
-//static PyObject* ReqQryDepthMarketData(CKSOTPQryDepthMarketDataField *pQryOTPDepthMarketData, int nRequestID){}
-
-///银行资金转个股请求
-//static PyObject* ReqFromBankToStockByStock(CKSOTPReqTransferField *pReqTransfer, int nRequestID){}
-
-///证券资金转银行请求
-//static PyObject* ReqFromStockToBankByStock(CKSOTPReqTransferField *pReqTransfer, int nRequestID){}
-
-///请求查询签约银行
-//static PyObject* ReqQryContractBank(CKSOTPQryContractBankField *pQryContractBank, int nRequestID){}
-
-///查询银行余额请求
-//static PyObject* ReqQueryBankAccountMoneyByStock(CKSOTPReqQueryAccountField *pReqQueryAccount, int nRequestID){}
-
-///请求查询转帐流水
-//static PyObject* ReqQryTransferSerial(CKSOTPQryTransferSerialField *pQryTransferSerial, int nRequestID){}
-
-///请求查询结算信息确认
-//static PyObject* ReqQrySettlementInfoConfirm(CKSOTPQrySettlementInfoConfirmField *pQrySettlementInfoConfirm, int nRequestID){}
 
 ///投资者结算结果确认
 static PyObject* ReqSettlementInfoConfirm(PyObject* self, PyObject *args)
@@ -474,27 +420,6 @@ static PyObject* ReqQryInvestorTradeLevel(PyObject* self, PyObject *args)
 	PyObject * ret = Py_BuildValue("i", handle->ReqQryInvestorTradeLevel(&req, nRequestID));
 	return ret;
 }
-
-///查询个股限购额度
-//static PyObject* ReqQryPurchaseLimitAmt(CKSOTPQryPurchaseLimitAmtField *pQryPurchaseLimitAmt, int nRequestID){}
-
-///查询个股限仓额度
-//static PyObject* ReqQryPositionLimitVol(CKSOTPQryPositionLimitVolField *pQryPositionLimitVol, int nRequestID){}
-
-///请求查询历史报单
-//static PyObject* ReqQryHistoryOrder(CKSOTPQryHistoryOrderField *pQryHistoryOrder, int nRequestID){}
-
-///请求查询历史成交
-//static PyObject* ReqQryHistoryTrade(CKSOTPQryHistoryTradeField *pQryHistoryTrade, int nRequestID){}
-
-///请求查询历史行权指派明细
-//static PyObject* ReqQryHistoryAssignment(CKSOTPQryHistoryAssignmentField *pQryHistoryAssignment, int nRequestID){}
-
-///请求查询行权交割明细
-//static PyObject* ReqQryDelivDetail(CKSOTPQryDelivDetailField *pQryDelivDetail, int nRequestID){}
-
-///自动行权执行操作
-//static PyObject* ReqAutoExecOrderAction(CKSOTPAutoExecOrderActionField *pAutoExecOrderAction, int nRequestID){}
 
 extern "C" __declspec(dllexport) void init_otp_trd()
 {

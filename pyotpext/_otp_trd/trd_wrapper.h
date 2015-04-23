@@ -713,11 +713,43 @@ public:
 	///请求查询结算信息确认响应
 	virtual void OnRspQrySettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
+		PyGILState_STATE gstate;
+		gstate = PyGILState_Ensure();
+
+		PyObject *dict = PyDict_New();
+		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pSettlementInfoConfirm->BrokerID));
+		PyDict_SetItemString(dict, "InvestorID", Py_BuildValue("s", pSettlementInfoConfirm->InvestorID));
+		PyDict_SetItemString(dict, "ConfirmDate", Py_BuildValue("s", pSettlementInfoConfirm->ConfirmDate));
+		PyDict_SetItemString(dict, "ConfirmTime", Py_BuildValue("s", pSettlementInfoConfirm->ConfirmTime));
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_settlement_info_confirm", (char*)"Nisib", dict,
+			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
+		{
+			PyErr_Print();
+		}
+		Py_XDECREF(dict);
+
+		PyGILState_Release(gstate);
 	};
 
 	///投资者结算结果确认响应
 	virtual void OnRspSettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
+		PyGILState_STATE gstate;
+		gstate = PyGILState_Ensure();
+
+		PyObject *dict = PyDict_New();
+		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pSettlementInfoConfirm->BrokerID));
+		PyDict_SetItemString(dict, "InvestorID", Py_BuildValue("s", pSettlementInfoConfirm->InvestorID));
+		PyDict_SetItemString(dict, "ConfirmDate", Py_BuildValue("s", pSettlementInfoConfirm->ConfirmDate));
+		PyDict_SetItemString(dict, "ConfirmTime", Py_BuildValue("s", pSettlementInfoConfirm->ConfirmTime));
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_settlement_info_confirm", (char*)"Nisib", dict,
+			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
+		{
+			PyErr_Print();
+		}
+		Py_XDECREF(dict);
+
+		PyGILState_Release(gstate);
 	};
 
 };

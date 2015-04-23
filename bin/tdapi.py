@@ -66,6 +66,14 @@ class TradeSpi:
     def on_rsp_qry_instrument_margin_rate(self, instrument_margin_rate, rsp_err_id, rsp_err_msg, request_id, is_last):
         pass
 
+    def on_rsp_qry_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
+                                           is_last):
+        pass
+
+    def on_rsp_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
+                                       is_last):
+        pass
+
 
 class TradeApi:
     @staticmethod
@@ -137,12 +145,17 @@ class TradeApi:
     def req_qry_investor_position_detail(self, qry_investor_position_detail_field, request_id):
         return _otp_trd.ReqQryInvestorPositionDetail(self.api_ptr, qry_investor_position_detail_field, request_id)
 
-    def req_qry_OTP_ins_comm_rate(self, qry_OTP_ins_comm_rate_field, request_id):
-        return _otp_trd.ReqQryOTPInsCommRate(self.api_ptr, qry_OTP_ins_comm_rate_field, request_id)
+    def req_qry_otp_ins_comm_rate(self, qry_otp_ins_comm_rate_field, request_id):
+        return _otp_trd.ReqQryOTPInsCommRate(self.api_ptr, qry_otp_ins_comm_rate_field, request_id)
 
-    def req_qry_OTP_ins_margin_rate(self, qry_instrument_margin_rate_field, request_id):
+    def req_qry_otp_ins_margin_rate(self, qry_instrument_margin_rate_field, request_id):
         return _otp_trd.ReqQryOTPInsMarginRate(self.api_ptr, qry_instrument_margin_rate_field, request_id)
 
     def req_qry_investor_trade_level(self, qry_investor_trade_level_field, request_id):
         return _otp_trd.ReqQryInvestorTradeLevel(self.api_ptr, qry_investor_trade_level_field, request_id)
 
+    def req_settlement_info_confirm(self, settlement_info_confirm_field, request_id):
+        return _otp_trd.ReqSettlementInfoConfirm(self.api_ptr, settlement_info_confirm_field, request_id)
+
+    def req_qry_settlement_info(self, qry_settlement_info_field, request_id):
+        return _otp_trd.ReqQrySettlementInfo(self.api_ptr, qry_settlement_info_field, request_id)
