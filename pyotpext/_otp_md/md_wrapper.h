@@ -22,7 +22,7 @@ public:
 		Py_DECREF(_spi);
 	}
 
-	///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°å»ºç«‹èµ·é€šä¿¡è¿æ¥æ—¶ï¼ˆè¿˜æœªç™»å½•å‰ï¼‰ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚
+	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨½¨Á¢ÆğÍ¨ĞÅÁ¬½ÓÊ±£¨»¹Î´µÇÂ¼Ç°£©£¬¸Ã·½·¨±»µ÷ÓÃ¡£
 
 	virtual void OnFrontConnected()
 	{
@@ -37,13 +37,13 @@ public:
 		PyGILState_Release(gstate);
 	};
 	
-	///å½“å®¢æˆ·ç«¯ä¸äº¤æ˜“åå°é€šä¿¡è¿æ¥æ–­å¼€æ—¶ï¼Œè¯¥æ–¹æ³•è¢«è°ƒç”¨ã€‚å½“å‘ç”Ÿè¿™ä¸ªæƒ…å†µåï¼Œå®¢æˆ·ç«¯éœ€è¦åšé‡è¿å¤„ç†ã€‚
-	///@param nReason é”™è¯¯åŸå› 
-	///        0x1001 ç½‘ç»œè¯»å¤±è´¥
-	///        0x1002 ç½‘ç»œå†™å¤±è´¥
-	///        0x2001 æ¥æ”¶å¿ƒè·³è¶…æ—¶
-	///        0x2002 å‘é€å¿ƒè·³å¤±è´¥
-	///        0x2003 æ”¶åˆ°é”™è¯¯æŠ¥æ–‡
+	///µ±¿Í»§¶ËÓë½»Ò×ºóÌ¨Í¨ĞÅÁ¬½Ó¶Ï¿ªÊ±£¬¸Ã·½·¨±»µ÷ÓÃ¡£µ±·¢ÉúÕâ¸öÇé¿öºó£¬¿Í»§¶ËĞèÒª×öÖØÁ¬´¦Àí¡£
+	///@param nReason ´íÎóÔ­Òò
+	///        0x1001 ÍøÂç¶ÁÊ§°Ü
+	///        0x1002 ÍøÂçĞ´Ê§°Ü
+	///        0x2001 ½ÓÊÕĞÄÌø³¬Ê±
+	///        0x2002 ·¢ËÍĞÄÌøÊ§°Ü
+	///        0x2003 ÊÕµ½´íÎó±¨ÎÄ
 	virtual void OnFrontDisconnected(int nReason)
 	{
 		PyGILState_STATE gstate;
@@ -86,7 +86,7 @@ public:
 		PyGILState_Release(gstate);
 	};	
 
-	///ç™»å½•è¯·æ±‚å“åº”
+	///µÇÂ¼ÇëÇóÏìÓ¦
 	virtual void OnRspUserLogin(CKSOTPRspUserLoginField *pRspUserLogin, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
 		PyGILState_STATE gstate;
@@ -115,7 +115,7 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///ç™»å‡ºè¯·æ±‚å“åº”
+	///µÇ³öÇëÇóÏìÓ¦
 	virtual void OnRspUserLogout(CKSOTPUserLogoutField *pUserLogout, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
 		PyGILState_STATE gstate;
@@ -137,7 +137,7 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///é”™è¯¯åº”ç­”
+	///´íÎóÓ¦´ğ
 	virtual void OnRspError(CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
 		PyGILState_STATE gstate;
@@ -152,7 +152,7 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///è®¢é˜…è¡Œæƒ…åº”ç­”
+	///¶©ÔÄĞĞÇéÓ¦´ğ
 	virtual void OnRspSubMarketData(CKSOTPSpecificInstrumentField *pSpecificInstrument, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
 		PyGILState_STATE gstate;
@@ -167,7 +167,7 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///å–æ¶ˆè®¢é˜…è¡Œæƒ…åº”ç­”
+	///È¡Ïû¶©ÔÄĞĞÇéÓ¦´ğ
 	virtual void OnRspUnSubMarketData(CKSOTPSpecificInstrumentField *pSpecificInstrument, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
 	{
 		PyGILState_STATE gstate;
@@ -182,7 +182,7 @@ public:
 		PyGILState_Release(gstate);
 	};
 
-	///æ·±åº¦è¡Œæƒ…é€šçŸ¥
+	///Éî¶ÈĞĞÇéÍ¨Öª
 	virtual void OnRtnDepthMarketData(CKSOTPDepthMarketDataField *pDepthMarketData) 
 	{
 		PyGILState_STATE gstate;
@@ -201,8 +201,8 @@ public:
 			PyDict_SetItemString(dict, "PreClosePrice", Py_BuildValue("d", pDepthMarketData->PreClosePrice));
 			PyDict_SetItemString(dict, "PreOpenInterest", Py_BuildValue("d", pDepthMarketData->PreOpenInterest));
 			PyDict_SetItemString(dict, "OpenPrice", Py_BuildValue("d", pDepthMarketData->OpenPrice));
-			PyDict_SetItemString(dict, "HighestPrice", Py_BuildValue("s", pDepthMarketData->HighestPrice));
-			PyDict_SetItemString(dict, "LowestPrice", Py_BuildValue("s", pDepthMarketData->LowestPrice));
+			PyDict_SetItemString(dict, "HighestPrice", Py_BuildValue("d", pDepthMarketData->HighestPrice));
+			PyDict_SetItemString(dict, "LowestPrice", Py_BuildValue("d", pDepthMarketData->LowestPrice));
 			PyDict_SetItemString(dict, "Volume", Py_BuildValue("i", pDepthMarketData->Volume));
 			PyDict_SetItemString(dict, "Turnover", Py_BuildValue("d", pDepthMarketData->Turnover));
 			PyDict_SetItemString(dict, "OpenInterest", Py_BuildValue("d", pDepthMarketData->OpenInterest));

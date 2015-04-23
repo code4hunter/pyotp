@@ -7,9 +7,9 @@
 
 using namespace KingstarAPI;
 
-///åˆ›å»ºTraderApi
-///@return åˆ›å»ºå‡ºçš„UserApi
-///@param pszFlowPath å­˜è´®è®¢é˜…ä¿¡æ¯æ–‡ä»¶çš„ç›®å½•ï¼Œé»˜è®¤ä¸ºå½“å‰ç›®å½•
+///´´½¨TraderApi
+///@return ´´½¨³öµÄUserApi
+///@param pszFlowPath ´æÖü¶©ÔÄĞÅÏ¢ÎÄ¼şµÄÄ¿Â¼£¬Ä¬ÈÏÎªµ±Ç°Ä¿Â¼
 static PyObject* CreateTrdApi(PyObject* self, PyObject *args)
 {
 	char * pszFlowPath=NULL;
@@ -18,8 +18,8 @@ static PyObject* CreateTrdApi(PyObject* self, PyObject *args)
 	return PyInt_FromLong((long)(void*)p);
 }
 
-///åˆ é™¤æ¥å£å¯¹è±¡æœ¬èº«
-///@remark ä¸å†ä½¿ç”¨æœ¬æ¥å£å¯¹è±¡æ—¶,è°ƒç”¨è¯¥å‡½æ•°åˆ é™¤æ¥å£å¯¹è±¡
+///É¾³ı½Ó¿Ú¶ÔÏó±¾Éí
+///@remark ²»ÔÙÊ¹ÓÃ±¾½Ó¿Ú¶ÔÏóÊ±,µ÷ÓÃ¸Ãº¯ÊıÉ¾³ı½Ó¿Ú¶ÔÏó
 static PyObject* Release(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -28,8 +28,8 @@ static PyObject* Release(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///åˆå§‹åŒ–
-///@remark åˆå§‹åŒ–è¿è¡Œç¯å¢ƒ,åªæœ‰è°ƒç”¨å,æ¥å£æ‰å¼€å§‹å·¥ä½œ
+///³õÊ¼»¯
+///@remark ³õÊ¼»¯ÔËĞĞ»·¾³,Ö»ÓĞµ÷ÓÃºó,½Ó¿Ú²Å¿ªÊ¼¹¤×÷
 static PyObject* Init(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -38,9 +38,9 @@ static PyObject* Init(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///è·å–å½“å‰äº¤æ˜“æ—¥
-///@return è·å–åˆ°çš„äº¤æ˜“æ—¥
-///@remark åªæœ‰ç™»å½•æˆåŠŸå,æ‰èƒ½å¾—åˆ°æ­£ç¡®çš„äº¤æ˜“æ—¥
+///»ñÈ¡µ±Ç°½»Ò×ÈÕ
+///@return »ñÈ¡µ½µÄ½»Ò×ÈÕ
+///@remark Ö»ÓĞµÇÂ¼³É¹¦ºó,²ÅÄÜµÃµ½ÕıÈ·µÄ½»Ò×ÈÕ
 static PyObject* GetTradingDay(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -48,10 +48,10 @@ static PyObject* GetTradingDay(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///æ³¨å†Œå‰ç½®æœºç½‘ç»œåœ°å€
-///@param pszFrontAddressï¼šå‰ç½®æœºç½‘ç»œåœ°å€.
-///@remark ç½‘ç»œåœ°å€çš„æ ¼å¼ä¸ºï¼šâ€œprotocol://ipaddress:portâ€ï¼Œå¦‚ï¼šâ€tcp://127.0.0.1:17001â€. 
-///@remark â€œtcpâ€ä»£è¡¨ä¼ è¾“åè®®ï¼Œâ€œ127.0.0.1â€ä»£è¡¨æœåŠ¡å™¨åœ°å€.â€17001â€ä»£è¡¨æœåŠ¡å™¨ç«¯å£å·.
+///×¢²áÇ°ÖÃ»úÍøÂçµØÖ·
+///@param pszFrontAddress£ºÇ°ÖÃ»úÍøÂçµØÖ·.
+///@remark ÍøÂçµØÖ·µÄ¸ñÊ½Îª£º¡°protocol://ipaddress:port¡±£¬Èç£º¡±tcp://127.0.0.1:17001¡±. 
+///@remark ¡°tcp¡±´ú±í´«ÊäĞ­Òé£¬¡°127.0.0.1¡±´ú±í·şÎñÆ÷µØÖ·.¡±17001¡±´ú±í·şÎñÆ÷¶Ë¿ÚºÅ.
 static PyObject* RegisterFront(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -62,8 +62,8 @@ static PyObject* RegisterFront(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///æ³¨å†Œå›è°ƒæ¥å£
-///@param pSpi æ´¾ç”Ÿè‡ªå›è°ƒæ¥å£ç±»çš„å®ä¾‹
+///×¢²á»Øµ÷½Ó¿Ú
+///@param pSpi ÅÉÉú×Ô»Øµ÷½Ó¿ÚÀàµÄÊµÀı
 static PyObject* RegisterSpi(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *) PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -74,12 +74,12 @@ static PyObject* RegisterSpi(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///è®¢é˜…ç§æœ‰æµ.
-///@param nResumeType ç§æœ‰æµé‡ä¼ æ–¹å¼  
-///        THOST_TERT_RESTART:ä»æœ¬äº¤æ˜“æ—¥å¼€å§‹é‡ä¼ 
-///        THOST_TERT_RESUME:ä»ä¸Šæ¬¡æ”¶åˆ°çš„ç»­ä¼ 
-///        THOST_TERT_QUICK:åªä¼ é€ç™»å½•åç§æœ‰æµçš„å†…å®¹
-///@remark è¯¥æ–¹æ³•è¦åœ¨Initæ–¹æ³•å‰è°ƒç”¨.è‹¥ä¸è°ƒç”¨åˆ™ä¸ä¼šæ”¶åˆ°ç§æœ‰æµçš„æ•°æ®.
+///¶©ÔÄË½ÓĞÁ÷.
+///@param nResumeType Ë½ÓĞÁ÷ÖØ´«·½Ê½  
+///        THOST_TERT_RESTART:´Ó±¾½»Ò×ÈÕ¿ªÊ¼ÖØ´«
+///        THOST_TERT_RESUME:´ÓÉÏ´ÎÊÕµ½µÄĞø´«
+///        THOST_TERT_QUICK:Ö»´«ËÍµÇÂ¼ºóË½ÓĞÁ÷µÄÄÚÈİ
+///@remark ¸Ã·½·¨ÒªÔÚInit·½·¨Ç°µ÷ÓÃ.Èô²»µ÷ÓÃÔò²»»áÊÕµ½Ë½ÓĞÁ÷µÄÊı¾İ.
 static PyObject* SubscribePrivateTopic(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -89,12 +89,12 @@ static PyObject* SubscribePrivateTopic(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///è®¢é˜…å…¬å…±æµ.
-///@param nResumeType å…¬å…±æµé‡ä¼ æ–¹å¼  
-///        THOST_TERT_RESTART:ä»æœ¬äº¤æ˜“æ—¥å¼€å§‹é‡ä¼ 
-///        THOST_TERT_RESUME:ä»ä¸Šæ¬¡æ”¶åˆ°çš„ç»­ä¼ 
-///        THOST_TERT_QUICK:åªä¼ é€ç™»å½•åå…¬å…±æµçš„å†…å®¹
-///@remark è¯¥æ–¹æ³•è¦åœ¨Initæ–¹æ³•å‰è°ƒç”¨.è‹¥ä¸è°ƒç”¨åˆ™ä¸ä¼šæ”¶åˆ°å…¬å…±æµçš„æ•°æ®.
+///¶©ÔÄ¹«¹²Á÷.
+///@param nResumeType ¹«¹²Á÷ÖØ´«·½Ê½  
+///        THOST_TERT_RESTART:´Ó±¾½»Ò×ÈÕ¿ªÊ¼ÖØ´«
+///        THOST_TERT_RESUME:´ÓÉÏ´ÎÊÕµ½µÄĞø´«
+///        THOST_TERT_QUICK:Ö»´«ËÍµÇÂ¼ºó¹«¹²Á÷µÄÄÚÈİ
+///@remark ¸Ã·½·¨ÒªÔÚInit·½·¨Ç°µ÷ÓÃ.Èô²»µ÷ÓÃÔò²»»áÊÕµ½¹«¹²Á÷µÄÊı¾İ.
 static PyObject* SubscribePublicTopic(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -104,7 +104,7 @@ static PyObject* SubscribePublicTopic(PyObject* self, PyObject *args)
 	return Py_None;
 }
 
-///ç”¨æˆ·ç™»å½•è¯·æ±‚
+///ÓÃ»§µÇÂ¼ÇëÇó
 static PyObject* ReqUserLogin(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -124,7 +124,7 @@ static PyObject* ReqUserLogin(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///ç™»å‡ºè¯·æ±‚
+///µÇ³öÇëÇó
 static PyObject* ReqUserLogout(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -139,13 +139,13 @@ static PyObject* ReqUserLogout(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///ç”¨æˆ·å£ä»¤æ›´æ–°è¯·æ±‚
+///ÓÃ»§¿ÚÁî¸üĞÂÇëÇó
 //static PyObject* ReqUserPasswordUpdate(CKSOTPUserPasswordUpdateField *pUserPasswordUpdate, int nRequestID){}
 
-///èµ„é‡‘è´¦æˆ·å£ä»¤æ›´æ–°è¯·æ±‚
+///×Ê½ğÕË»§¿ÚÁî¸üĞÂÇëÇó
 //static PyObject* ReqTradingAccountPasswordUpdate(CKSOTPTradingAccountPasswordUpdateField *pTradingAccountPasswordUpdate, int nRequestID){}
 
-///æŠ¥å•å½•å…¥è¯·æ±‚
+///±¨µ¥Â¼ÈëÇëÇó
 static PyObject* ReqOrderInsert(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -179,7 +179,7 @@ static PyObject* ReqOrderInsert(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///æŠ¥å•æ“ä½œè¯·æ±‚
+///±¨µ¥²Ù×÷ÇëÇó
 static PyObject* ReqOrderAction(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -209,7 +209,7 @@ static PyObject* ReqOrderAction(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢æŠ¥å•
+///ÇëÇó²éÑ¯±¨µ¥
 static PyObject* ReqQryOrder(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -229,7 +229,7 @@ static PyObject* ReqQryOrder(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢æˆäº¤
+///ÇëÇó²éÑ¯³É½»
 static PyObject* ReqQryTrade(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -250,7 +250,7 @@ static PyObject* ReqQryTrade(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…æŒä»“
+///ÇëÇó²éÑ¯Í¶×ÊÕß³Ö²Ö
 static PyObject* ReqQryInvestorPosition(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -268,7 +268,7 @@ static PyObject* ReqQryInvestorPosition(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢èµ„é‡‘è´¦æˆ·
+///ÇëÇó²éÑ¯×Ê½ğÕË»§
 static PyObject* ReqQryTradingAccount(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -285,7 +285,7 @@ static PyObject* ReqQryTradingAccount(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…
+///ÇëÇó²éÑ¯Í¶×ÊÕß
 static PyObject* ReqQryInvestor(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -302,13 +302,13 @@ static PyObject* ReqQryInvestor(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢åˆçº¦è´¦å·
+///ÇëÇó²éÑ¯ºÏÔ¼ÕËºÅ
 //static PyObject* ReqQryTradingCode(CKSOTPQryTradingCodeField *pQryTradingCode, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢äº¤æ˜“æ‰€
+///ÇëÇó²éÑ¯½»Ò×Ëù
 //static PyObject* ReqQryExchange(CKSOTPQryExchangeField *pQryExchange, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢åˆçº¦
+///ÇëÇó²éÑ¯ºÏÔ¼
 static PyObject* ReqQryInstrument(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -325,7 +325,7 @@ static PyObject* ReqQryInstrument(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…æŒä»“æ˜ç»†
+///ÇëÇó²éÑ¯Í¶×ÊÕß³Ö²ÖÃ÷Ï¸
 static PyObject* ReqQryInvestorPositionDetail(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -343,25 +343,25 @@ static PyObject* ReqQryInvestorPositionDetail(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///è¯·æ±‚æŸ¥è¯¢äº¤æ˜“é€šçŸ¥
+///ÇëÇó²éÑ¯½»Ò×Í¨Öª
 //static PyObject* ReqQryTradingNotice(CKSOTPQryTradingNoticeField *pQryTradingNotice, int nRequestID){}
 
-///éäº¤æ˜“æŠ¥å•å½•å…¥è¯·æ±‚
+///·Ç½»Ò×±¨µ¥Â¼ÈëÇëÇó
 //static PyObject* ReqNonTradingOrderInsert(CKSOTPInputNonTradingOrderField *pInputNonTradingOrder, int nRequestID){}
 
-///éäº¤æ˜“æŠ¥å•æ“ä½œè¯·æ±‚ï¼ˆä»…é’ˆå¯¹è¡Œæƒå•ï¼‰
+///·Ç½»Ò×±¨µ¥²Ù×÷ÇëÇó£¨½öÕë¶ÔĞĞÈ¨µ¥£©
 //static PyObject* ReqNonTradingOrderAction(CKSOTPInputNonTradingOrderActionField *pInputNonTradingOrderAction, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢éäº¤æ˜“æŠ¥å•
+///ÇëÇó²éÑ¯·Ç½»Ò×±¨µ¥
 //static PyObject* ReqQryNonTradingOrder(CKSOTPQryNonTradingOrderField *pQryNonTradingOrder, int nRequestID){}
 
-///æŸ¥è¯¢éäº¤æ˜“æŠ¥å•é‡è¯·æ±‚
+///²éÑ¯·Ç½»Ò×±¨µ¥Á¿ÇëÇó
 //static PyObject* ReqQryNonTradingOrderVolume(CKSOTPQryNonTradingOrderVolumeField *pQryNonTradingOrderVolume, int nRequestID){}
 
-///æŸ¥è¯¢æ ‡çš„åˆ¸ä¿¡æ¯è¯·æ±‚
+///²éÑ¯±êµÄÈ¯ĞÅÏ¢ÇëÇó
 //static PyObject* ReqQryUnderlyingStockInfo(CKSOTPQryUnderlyingStockInfoField *pQryOTPOrderParams, int nRequestID){}
 
-///æŸ¥è¯¢ä¸ªè‚¡æœŸæƒæ‰‹ç»­è´¹ç‡è¯·æ±‚
+///²éÑ¯¸ö¹ÉÆÚÈ¨ÊÖĞø·ÑÂÊÇëÇó
 static PyObject* ReqQryOTPInsCommRate(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -379,7 +379,7 @@ static PyObject* ReqQryOTPInsCommRate(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///æŸ¥è¯¢ä¸ªè‚¡æœŸæƒä¿è¯é‡‘ç‡è¯·æ±‚
+///²éÑ¯¸ö¹ÉÆÚÈ¨±£Ö¤½ğÂÊÇëÇó
 static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -397,37 +397,67 @@ static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///æŸ¥è¯¢ä¸ªè‚¡è¡ŒæƒæŒ‡æ´¾ä¿¡æ¯
+///²éÑ¯¸ö¹ÉĞĞÈ¨Ö¸ÅÉĞÅÏ¢
 //static PyObject* ReqQryOTPAssignment(CKSOTPQryOTPAssignmentField *pQryOTPAssignment, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢è¡Œæƒ… 
+///ÇëÇó²éÑ¯ĞĞÇé 
 //static PyObject* ReqQryDepthMarketData(CKSOTPQryDepthMarketDataField *pQryOTPDepthMarketData, int nRequestID){}
 
-///é“¶è¡Œèµ„é‡‘è½¬ä¸ªè‚¡è¯·æ±‚
+///ÒøĞĞ×Ê½ğ×ª¸ö¹ÉÇëÇó
 //static PyObject* ReqFromBankToStockByStock(CKSOTPReqTransferField *pReqTransfer, int nRequestID){}
 
-///è¯åˆ¸èµ„é‡‘è½¬é“¶è¡Œè¯·æ±‚
+///Ö¤È¯×Ê½ğ×ªÒøĞĞÇëÇó
 //static PyObject* ReqFromStockToBankByStock(CKSOTPReqTransferField *pReqTransfer, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢ç­¾çº¦é“¶è¡Œ
+///ÇëÇó²éÑ¯Ç©Ô¼ÒøĞĞ
 //static PyObject* ReqQryContractBank(CKSOTPQryContractBankField *pQryContractBank, int nRequestID){}
 
-///æŸ¥è¯¢é“¶è¡Œä½™é¢è¯·æ±‚
+///²éÑ¯ÒøĞĞÓà¶îÇëÇó
 //static PyObject* ReqQueryBankAccountMoneyByStock(CKSOTPReqQueryAccountField *pReqQueryAccount, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢è½¬å¸æµæ°´
+///ÇëÇó²éÑ¯×ªÕÊÁ÷Ë®
 //static PyObject* ReqQryTransferSerial(CKSOTPQryTransferSerialField *pQryTransferSerial, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢ç»“ç®—ä¿¡æ¯ç¡®è®¤
+///ÇëÇó²éÑ¯½áËãĞÅÏ¢È·ÈÏ
 //static PyObject* ReqQrySettlementInfoConfirm(CKSOTPQrySettlementInfoConfirmField *pQrySettlementInfoConfirm, int nRequestID){}
 
-///æŠ•èµ„è€…ç»“ç®—ç»“æœç¡®è®¤
-//static PyObject* ReqSettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, int nRequestID){}
+///Í¶×ÊÕß½áËã½á¹ûÈ·ÈÏ
+static PyObject* ReqSettlementInfoConfirm(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPSettlementInfoConfirmField req;
 
-///è¯·æ±‚æŸ¥è¯¢æŠ•èµ„è€…ç»“ç®—ç»“æœ
-//static PyObject* ReqQrySettlementInfo(CKSOTPQrySettlementInfoField *pQrySettlementInfo, int nRequestID){}
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "ConfirmDate", req.ConfirmDate, sizeof(req.ConfirmDate));
+	_get_map_string(map, "ConfirmTime", req.ConfirmTime, sizeof(req.ConfirmTime));
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
 
-///æŸ¥è¯¢å®¢æˆ·äº¤æ˜“çº§åˆ«
+	PyObject * ret = Py_BuildValue("i", handle->ReqSettlementInfoConfirm(&req, nRequestID));
+	return ret;
+}
+
+///ÇëÇó²éÑ¯Í¶×ÊÕß½áËã½á¹û
+static PyObject* ReqQrySettlementInfo(PyObject* self, PyObject *args)
+{
+	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
+	PyObject * map = PyTuple_GET_ITEM(args, 1);
+	CKSOTPQrySettlementInfoField req;
+
+	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
+	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
+	_get_map_string(map, "TradingDay", req.TradingDay, sizeof(req.TradingDay));
+
+	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
+	int nRequestID = PyInt_AsLong(py_nRequestID);
+
+	PyObject * ret = Py_BuildValue("i", handle->ReqQrySettlementInfo(&req, nRequestID));
+	return ret;
+}
+
+///²éÑ¯¿Í»§½»Ò×¼¶±ğ
 static PyObject* ReqQryInvestorTradeLevel(PyObject* self, PyObject *args)
 {
 	CKSOTPTraderApi * handle = (CKSOTPTraderApi *)PyInt_AsLong(PyTuple_GET_ITEM(args, 0));
@@ -445,25 +475,25 @@ static PyObject* ReqQryInvestorTradeLevel(PyObject* self, PyObject *args)
 	return ret;
 }
 
-///æŸ¥è¯¢ä¸ªè‚¡é™è´­é¢åº¦
+///²éÑ¯¸ö¹ÉÏŞ¹º¶î¶È
 //static PyObject* ReqQryPurchaseLimitAmt(CKSOTPQryPurchaseLimitAmtField *pQryPurchaseLimitAmt, int nRequestID){}
 
-///æŸ¥è¯¢ä¸ªè‚¡é™ä»“é¢åº¦
+///²éÑ¯¸ö¹ÉÏŞ²Ö¶î¶È
 //static PyObject* ReqQryPositionLimitVol(CKSOTPQryPositionLimitVolField *pQryPositionLimitVol, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢å†å²æŠ¥å•
+///ÇëÇó²éÑ¯ÀúÊ·±¨µ¥
 //static PyObject* ReqQryHistoryOrder(CKSOTPQryHistoryOrderField *pQryHistoryOrder, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢å†å²æˆäº¤
+///ÇëÇó²éÑ¯ÀúÊ·³É½»
 //static PyObject* ReqQryHistoryTrade(CKSOTPQryHistoryTradeField *pQryHistoryTrade, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢å†å²è¡ŒæƒæŒ‡æ´¾æ˜ç»†
+///ÇëÇó²éÑ¯ÀúÊ·ĞĞÈ¨Ö¸ÅÉÃ÷Ï¸
 //static PyObject* ReqQryHistoryAssignment(CKSOTPQryHistoryAssignmentField *pQryHistoryAssignment, int nRequestID){}
 
-///è¯·æ±‚æŸ¥è¯¢è¡Œæƒäº¤å‰²æ˜ç»†
+///ÇëÇó²éÑ¯ĞĞÈ¨½»¸îÃ÷Ï¸
 //static PyObject* ReqQryDelivDetail(CKSOTPQryDelivDetailField *pQryDelivDetail, int nRequestID){}
 
-///è‡ªåŠ¨è¡Œæƒæ‰§è¡Œæ“ä½œ
+///×Ô¶¯ĞĞÈ¨Ö´ĞĞ²Ù×÷
 //static PyObject* ReqAutoExecOrderAction(CKSOTPAutoExecOrderActionField *pAutoExecOrderAction, int nRequestID){}
 
 extern "C" __declspec(dllexport) void init_otp_trd()
@@ -491,6 +521,8 @@ extern "C" __declspec(dllexport) void init_otp_trd()
 		{ "ReqUserLogout", ReqUserLogout, METH_VARARGS },
 		{ "SubscribePrivateTopic", SubscribePrivateTopic, METH_VARARGS },
 		{ "SubscribePublicTopic", SubscribePublicTopic, METH_VARARGS },
+		{ "ReqSettlementInfoConfirm", ReqSettlementInfoConfirm, METH_VARARGS },
+		{ "ReqQrySettlementInfo", ReqQrySettlementInfo, METH_VARARGS },
 		{ NULL, NULL, NULL }
 	};
 

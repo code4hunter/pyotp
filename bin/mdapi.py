@@ -48,59 +48,34 @@ class MarketDataApi:
     def __init__(self, api_ptr):
         self.api_ptr = api_ptr
 
-    def ReqUserLogout(self, pUserLogout, nRequestID):
-        '''登出请求'''
-        return _otp_md.ReqUserLogout(self.api_ptr, pUserLogout, nRequestID)
+    def req_user_logout(self, user_logout, request_id):
+        return _otp_md.ReqUserLogout(self.api_ptr, user_logout, request_id)
 
-    def Join(self, ):
-        '''等待接口线程结束运行
-        @return 线程退出代码'''
+    def join(self):
         return _otp_md.Join(self.api_ptr)
 
+    def unsubscribe_market_data(self, instrument_ids):
+        return _otp_md.UnSubscribeMarketData(self.api_ptr, instrument_ids)
 
-    def UnSubscribeMarketData(self, InstrumentIDs):
-        """订阅/退订行情。
-        @param ppInstrumentIDs list of 合约ID
-        """
-        return _otp_md.UnSubscribeMarketData(self.api_ptr, InstrumentIDs)
+    def register_front(self, front_address):
+        return _otp_md.RegisterFront(self.api_ptr, front_address)
 
-    def RegisterFront(self, pszFrontAddress):
-        '''注册前置机网络地址
-        @param pszFrontAddress：前置机网络地址。
-        @remark 网络地址的格式为：“protocol://ipaddress:port”，如：”tcp://127.0.0.1:17001”。
-        @remark “tcp”代表传输协议，“127.0.0.1”代表服务器地址。”17001”代表服务器端口号。'''
-        return _otp_md.RegisterFront(self.api_ptr, pszFrontAddress)
-
-    def Init(self):
-        '''初始化
-        @remark 初始化运行环境,只有调用后,接口才开始工作'''
+    def init(self):
         return _otp_md.Init(self.api_ptr)
 
-    def ReqUserLogin(self, pReqUserLoginField, nRequestID):
-        '''用户登录请求'''
-        return _otp_md.ReqUserLogin(self.api_ptr, pReqUserLoginField, nRequestID)
+    def req_user_login(self, req_user_login_field, request_id):
+        return _otp_md.ReqUserLogin(self.api_ptr, req_user_login_field, request_id)
 
-    def Release(self, ):
-        '''删除接口对象本身
-        @remark 不再使用本接口对象时,调用该函数删除接口对象'''
+    def release(self):
         return _otp_md.Release(self.api_ptr)
 
-    def GetTradingDay(self, ):
-        '''获取当前交易日
-        @retrun 获取到的交易日
-        @remark 只有登录成功后,才能得到正确的交易日'''
+    def get_trading_day(self):
         return _otp_md.GetTradingDay(self.api_ptr)
 
+    def subscribe_market_data(self, instrument_ids):
+        return _otp_md.SubscribeMarketData(self.api_ptr, instrument_ids)
 
-    def SubscribeMarketData(self, InstrumentIDs):
-        """订阅/退订行情。
-        @param ppInstrumentIDs list of 合约ID
-        """
-        return _otp_md.SubscribeMarketData(self.api_ptr, InstrumentIDs)
-
-    def RegisterSpi(self, pSpi):
-        '''注册回调接口
-        @param pSpi 派生自回调接口类的实例'''
-        ret = _otp_md.RegisterSpi(self.api_ptr, pSpi)
-        pSpi.register_api(self)
+    def register_spi(self, spi):
+        ret = _otp_md.RegisterSpi(self.api_ptr, spi)
+        spi.register_api(self)
         return ret

@@ -17,18 +17,17 @@ class MyMdSpi(mdapi.MarketDataSpi):
     def on_front_connected(self):
         self._request_id += 1
 
-        param = {'BrokerID': self._broker_id, 'UserID': self._investor_id, 'Password': self._password,
-                 'UserProductInfo': '', 'MacAddress': '', 'ClientIPAddress': ''}
-        self._api.ReqUserLogin(param, self._request_id)
+        param = {'BrokerID': self._broker_id, 'UserID': self._investor_id, 'Password': self._password}
+        self._api.req_user_login(param, self._request_id)
 
     def on_front_disconnected(self, reason, message):
         print("disconnected", message)
 
     def on_rsp_user_login(self, rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last):
         print("login", rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last)
-        print("login", self._api.GetTradingDay())
+        print("login", self._api.get_trading_day())
         print(rsp_user_login['SystemName'].decode('GBK'))
-        print(self._api.SubscribeMarketData(self._instruments))
+        print(self._api.subscribe_market_data(self._instruments))
 
     def on_rsp_user_logout(self, user_logout, rsp_err_id, rsp_err_msg, request_id, is_last):
         print("logout", user_logout, rsp_err_id, rsp_err_msg, request_id, is_last)
@@ -54,13 +53,12 @@ def run():
                       broker_id="31000853",
                       investor_id="20420418",
                       password="123456")
-        api.RegisterSpi(spi)
-        api.RegisterFront("tcp://116.236.247.173:17996")
-        api.Init()
+        api.register_spi(spi)
+        api.register_front("tcp://116.236.247.173:17996")
+        api.init()
 
         os.system("pause")
-
-        api.Release()
+        api.release()
 
     except Exception as err:
         print(err)

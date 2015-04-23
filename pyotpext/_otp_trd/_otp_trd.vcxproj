@@ -81,6 +81,7 @@
     <IncludePath>..\..\Python27\include;..\..\OTPAPI\inc;$(IncludePath)</IncludePath>
     <LibraryPath>..\..\OTPAPI\win32\;..\..\Python27\lib;$(LibraryPath)</LibraryPath>
     <TargetExt>.pyd</TargetExt>
+    <OutDir>../../bin/</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
