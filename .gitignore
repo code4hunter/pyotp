@@ -58,3 +58,4 @@ Temporary Items
 bin/log/KSMarketDataAPI_00_20150422_0.klg
 *.pyc
 *.pyc
+*.pyc

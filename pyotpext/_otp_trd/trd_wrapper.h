@@ -30,7 +30,7 @@ public:
 		PyGILState_STATE gstate;
 		gstate = PyGILState_Ensure();
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnFrontConnected", NULL))
+		if (!PyObject_CallMethod(_spi, (char*)"on_front_connected", NULL))
 		{
 			PyErr_Print();
 		}
@@ -80,7 +80,7 @@ public:
 			break;
 		}
 		}
-		if (!PyObject_CallMethod(_spi, (char*)"OnFrontDisconnected", (char*)"is", nReason, reason.c_str()))
+		if (!PyObject_CallMethod(_spi, (char*)"on_front_disconnected", (char*)"is", nReason, reason.c_str()))
 		{
 			PyErr_Print();
 		}
@@ -105,7 +105,7 @@ public:
 		PyDict_SetItemString(dict, "MaxOrderRef", Py_BuildValue("s", pRspUserLogin->MaxOrderRef));
 		PyDict_SetItemString(dict, "SSETime", Py_BuildValue("s", pRspUserLogin->SSETime));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspUserLogin", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_user_login", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -125,7 +125,7 @@ public:
 		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pUserLogout->BrokerID));
 		PyDict_SetItemString(dict, "UserID", Py_BuildValue("s", pUserLogout->UserID));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspUserLogout", (char*)"Nisib",
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_user_logout", (char*)"Nisib",
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -162,7 +162,7 @@ public:
 		PyDict_SetItemString(dict, "BusinessUnit", Py_BuildValue("s", pInputOrder->BusinessUnit));
 		PyDict_SetItemString(dict, "RequestID", Py_BuildValue("i", pInputOrder->RequestID));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspOrderInsert", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_order_insert", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -192,7 +192,7 @@ public:
 		PyDict_SetItemString(dict, "UserID", Py_BuildValue("s", pInputOrderAction->UserID));
 		PyDict_SetItemString(dict, "InstrumentID", Py_BuildValue("s", pInputOrderAction->InstrumentID));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspOrderAction", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_order_action", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -259,7 +259,7 @@ public:
 		PyDict_SetItemString(dict, "ActiveUserID", Py_BuildValue("s", pOrder->ActiveUserID));
 		PyDict_SetItemString(dict, "BrokerOrderSeq", Py_BuildValue("i", pOrder->BrokerOrderSeq));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryOrder", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_order", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -305,7 +305,7 @@ public:
 		PyDict_SetItemString(dict, "TradingDay", Py_BuildValue("s", pTrade->TradingDay));
 		PyDict_SetItemString(dict, "BrokerOrderSeq", Py_BuildValue("i", pTrade->BrokerOrderSeq));
 		PyDict_SetItemString(dict, "TradeSource", Py_BuildValue("c", pTrade->TradeSource));
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryTrade", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_trade", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -359,7 +359,7 @@ public:
 		PyDict_SetItemString(dict, "StrikeFrozen", Py_BuildValue("i", pInvestorPosition->StrikeFrozen));
 		PyDict_SetItemString(dict, "StrikeFrozenAmount", Py_BuildValue("f", pInvestorPosition->StrikeFrozenAmount));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInvestorPosition", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_investor_position", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -402,7 +402,7 @@ public:
 		PyDict_SetItemString(dict, "DeliveryMargin", Py_BuildValue("f", pTradingAccount->DeliveryMargin));
 		PyDict_SetItemString(dict, "ExchangeDeliveryMargin", Py_BuildValue("f", pTradingAccount->ExchangeDeliveryMargin));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryTradingAccount", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_trading_account", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -430,7 +430,7 @@ public:
 		PyDict_SetItemString(dict, "OpenDate", Py_BuildValue("s", pInvestor->OpenDate));
 		PyDict_SetItemString(dict, "Mobile", Py_BuildValue("s", pInvestor->Mobile));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInvestor", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_investor", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -477,7 +477,7 @@ public:
 		PyDict_SetItemString(dict, "OptionsType", Py_BuildValue("c", pInstrument->OptionsType));
 		PyDict_SetItemString(dict, "InstrumentIdSerial", Py_BuildValue("s", pInstrument->InstrumentIdSerial));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInstrument", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_instrument", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -522,7 +522,7 @@ public:
 		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pInvestorPositionDetail->BrokerID));
 		PyDict_SetItemString(dict, "BrokerID", Py_BuildValue("s", pInvestorPositionDetail->BrokerID));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInvestorPositionDetail", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_investor_position_detail", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -545,7 +545,7 @@ public:
 		PyDict_SetItemString(dict, "ProductID", Py_BuildValue("s", pInvestorTradeLevel->ProductID));
 		PyDict_SetItemString(dict, "TradeLevel", Py_BuildValue("c", pInvestorTradeLevel->TradeLevel));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInvestorTradeLevel", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_investor_trade_level", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -561,7 +561,7 @@ public:
 		PyGILState_STATE gstate;
 		gstate = PyGILState_Ensure();
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspError", (char*)"isib",
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_error", (char*)"isib",
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -627,7 +627,7 @@ public:
 		PyDict_SetItemString(dict, "ActiveUserID", Py_BuildValue("s", pOrder->ActiveUserID));
 		PyDict_SetItemString(dict, "BrokerOrderSeq", Py_BuildValue("i", pOrder->BrokerOrderSeq));
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRtnOrder", (char*)"N", dict))
+		if (!PyObject_CallMethod(_spi, (char*)"on_rtn_order", (char*)"N", dict))
 		{
 			PyErr_Print();
 		}
@@ -674,7 +674,7 @@ public:
 		PyDict_SetItemString(dict, "TradeSource", Py_BuildValue("c", pTrade->TradeSource));
 
 
-		if (!PyObject_CallMethod(_spi, (char*)"OnRtnTrade", (char*)"N", dict))
+		if (!PyObject_CallMethod(_spi, (char*)"on_rtn_trade", (char*)"N", dict))
 		{
 			PyErr_Print();
 		}
@@ -700,7 +700,7 @@ public:
 		PyDict_SetItemString(dict, "ShortMarginRatioByMoney", Py_BuildValue("f", pInstrumentMarginRate->ShortMarginRatioByMoney));
 		PyDict_SetItemString(dict, "ShortMarginRatioByVolume", Py_BuildValue("f", pInstrumentMarginRate->ShortMarginRatioByVolume));
 		PyDict_SetItemString(dict, "IsRelative", Py_BuildValue("i", pInstrumentMarginRate->IsRelative));
-		if (!PyObject_CallMethod(_spi, (char*)"OnRspQryInstrumentMarginRate", (char*)"Nisib", dict,
+		if (!PyObject_CallMethod(_spi, (char*)"on_rsp_qry_instrument_margin_rate", (char*)"Nisib", dict,
 			pRspInfo->ErrorID, pRspInfo->ErrorMsg, nRequestID, bIsLast))
 		{
 			PyErr_Print();
@@ -709,6 +709,17 @@ public:
 
 		PyGILState_Release(gstate);
 	}
+
+	///请求查询结算信息确认响应
+	virtual void OnRspQrySettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
+	{
+	};
+
+	///投资者结算结果确认响应
+	virtual void OnRspSettlementInfoConfirm(CKSOTPSettlementInfoConfirmField *pSettlementInfoConfirm, CKSOTPRspInfoField *pRspInfo, int nRequestID, bool bIsLast) 
+	{
+	};
+
 };
 
 #endif
