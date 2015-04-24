@@ -341,6 +341,7 @@ static PyObject* ReqQryOTPInsCommRate(PyObject* self, PyObject *args)
 	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
 	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
 	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
 
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);
@@ -359,6 +360,8 @@ static PyObject* ReqQryOTPInsMarginRate(PyObject* self, PyObject *args)
 	_get_map_string(map, "BrokerID", req.BrokerID, sizeof(req.BrokerID));
 	_get_map_string(map, "InvestorID", req.InvestorID, sizeof(req.InvestorID));
 	_get_map_string(map, "InstrumentID", req.InstrumentID, sizeof(req.InstrumentID));
+	_get_map_string(map, "ExchangeID", req.ExchangeID, sizeof(req.ExchangeID));
+	req.HedgeFlag = _get_map_char(map, "HedgeFlag");
 
 	PyObject * py_nRequestID = PyTuple_GET_ITEM(args, 2);
 	int nRequestID = PyInt_AsLong(py_nRequestID);

@@ -3,6 +3,12 @@ __author__ = 'hua'
 import _otp_trd
 import os
 
+import inspect
+
+
+def get_current_function_name():
+    return inspect.stack()[1][3]
+
 
 class TradeSpi:
     def __init__(self):
@@ -15,72 +21,100 @@ class TradeSpi:
         pass
 
     def on_front_disconnected(self, reason, message):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), reason, message)
 
     def on_rsp_user_login(self, rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), rsp_user_login, rsp_err_id, rsp_err_msg, request_id,
+              is_last)
 
     def on_rsp_user_logout(self, user_logout, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), user_logout, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_error(self, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_order_insert(self, input_order, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), input_order, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_order_action(self, input_order_action, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), input_order_action, rsp_err_id, rsp_err_msg, request_id,
+        is_last)
 
     def on_rsp_qry_order(self, order, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), order, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_qry_trade(self, trade, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), trade, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_qry_investor_position(self, investor_position, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), investor_position, rsp_err_id, rsp_err_msg, request_id,
+        is_last)
 
     def on_rsp_qry_trading_account(self, trading_account, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), trading_account, rsp_err_id, rsp_err_msg, request_id,
+        is_last)
 
     def on_rsp_qry_investor(self, investor, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), investor, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_qry_instrument(self, instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_qry_investor_position_detail(self, investor_position_detail, rsp_err_id, rsp_err_msg, request_id,
                                             is_last):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), investor_position_detail, rsp_err_id, rsp_err_msg,
+              request_id,
+              is_last)
 
     def on_rsp_qry_investor_trade_level(self, investor_trade_level, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), investor_trade_level, rsp_err_id, rsp_err_msg, request_id,
+        is_last)
 
     def on_rtn_order(self, order):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), order)
 
     def on_rtn_trade(self, trade):
-        pass
+        print(self.__class__.__name__, get_current_function_name(), trade)
 
-    def on_rsp_qry_instrument_margin_rate(self, instrument_margin_rate, rsp_err_id, rsp_err_msg, request_id, is_last):
-        pass
+    def on_rsp_qry_instrument_margin_rate(self, instrument_margin_rate, rsp_err_id, rsp_err_msg, request_id,
+                                          is_last):
+        print(self.__class__.__name__, get_current_function_name(), instrument_margin_rate, rsp_err_id, rsp_err_msg,
+              request_id, is_last)
 
     def on_rsp_qry_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
                                            is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id, rsp_err_msg,
+        request_id,
+        is_last)
 
     def on_rsp_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
                                        is_last):
-        pass
+        print(
+        self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id, rsp_err_msg,
+        request_id,
+        is_last)
+
+    def on_rsp_qry_otp_ins_comm_rate(self, otp_ins_comm_rate, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print(
+        self.__class__.__name__, get_current_function_name(), otp_ins_comm_rate, rsp_err_id, rsp_err_msg, request_id,
+        is_last)
 
 
 class TradeApi:
     @staticmethod
-    def create_api(flow_path="", is_using_udp=False):
+    def create_api(flow_path=""):
         if flow_path:
             flow_path = os.path.abspath(flow_path)
-        api_ptr = _otp_trd.CreateTrdApi(flow_path, is_using_udp, False)
+        api_ptr = _otp_trd.CreateTrdApi(flow_path)
         return TradeApi(api_ptr)
 
     def __init__(self, api_ptr):
