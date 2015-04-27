@@ -10,6 +10,6 @@
     <LocalDebuggerCommand>python.exe</LocalDebuggerCommand>
     <LocalDebuggerWorkingDirectory>G:\source\pyotp\bin\</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommandArguments>G:\source\pyotp\bin\testmdapi.py</LocalDebuggerCommandArguments>
+    <LocalDebuggerCommandArguments>G:\source\pyotp\bin\testtrdapi.py</LocalDebuggerCommandArguments>
   </PropertyGroup>
 </Project>

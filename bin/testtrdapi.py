@@ -1,8 +1,50 @@
 __author__ = 'yanghua'
 
 import tdapi
+import mdapi
 import os
 import userapidef
+
+
+class MyMdSpi(mdapi.MarketDataSpi):
+    def __init__(self, api, instruments, exchange, broker_id, investor_id, password):
+        self._api = api
+        self._exchange = exchange
+        self._request_id = 0
+        self._instruments = instruments
+        self._broker_id = broker_id
+        self._investor_id = investor_id
+        self._password = password
+
+    def on_front_connected(self):
+        self._request_id += 1
+
+        param = {'BrokerID': self._broker_id, 'UserID': self._investor_id, 'Password': self._password}
+        self._api.req_user_login(param, self._request_id)
+
+    def on_front_disconnected(self, reason, message):
+        print("disconnected", message)
+
+    def on_rsp_user_login(self, rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("login", rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last)
+        print("login", self._api.get_trading_day())
+        print(rsp_user_login['SystemName'].decode('GBK'))
+        print(self._api.subscribe_market_data(self._instruments))
+
+    def on_rsp_user_logout(self, user_logout, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("logout", user_logout, rsp_err_id, rsp_err_msg, request_id, is_last)
+
+    def on_rsp_error(self, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("error", rsp_err_id, rsp_err_msg.decode('GBK'), request_id, is_last)
+
+    def on_rsp_sub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("sub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+
+    def on_rsp_unsub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("unsub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+
+    def on_rtn_depth_market_data(self, depth_market_data):
+        print(depth_market_data)
 
 
 class MyTrdSpi(tdapi.TradeSpi):
@@ -22,6 +64,15 @@ class MyTrdSpi(tdapi.TradeSpi):
 
     def on_front_disconnected(self, reason, message):
         print("disconnected", message)
+
+    def on_rsp_sub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("sub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+
+    def on_rsp_unsub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
+        print("unsub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+
+    def on_rtn_depth_market_data(self, depth_market_data):
+        print(depth_market_data)
 
     def on_rsp_user_login(self, rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last):
         print("login", rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last)
@@ -65,22 +116,33 @@ class MyTrdSpi(tdapi.TradeSpi):
         self._api.req_settlement_info_confirm(param, self._request_id)
 
 
-
 def run():
     try:
-        api = tdapi.TradeApi.create_api("log")
-        spi = MyTrdSpi(api, instruments=['11000071', '11000076'],
+        path = os.getcwd()
+        # initial market data
+        api = mdapi.MarketDataApi.create_api(os.path.join(path, "log"))
+        spi2 = MyMdSpi(api, instruments=['11000071', '11000076'],
                        exchange='SSE',
                        broker_id="31000853",
                        investor_id="20420418",
                        password="123456")
-        api.register_spi(spi)
+        api.register_spi(spi2)
         api.register_front("tcp://116.236.247.173:17996")
         api.init()
 
-        os.system("pause")
-        api.release()
+        trd_api = tdapi.TradeApi.create_api(os.path.join(path, "log"))
+        spi = MyTrdSpi(trd_api, instruments=['11000071', '11000076'],
+                       exchange='SSE',
+                       broker_id="31000853",
+                       investor_id="20420418",
+                       password="123456")
+        trd_api.register_spi(spi)
+        trd_api.register_front("tcp://116.236.247.173:17996")
+        trd_api.init()
 
+        os.system("pause")
+        trd_api.release()
+        api.release()
     except Exception as err:
         print(err)
 
