@@ -29,19 +29,22 @@ class TradeSpi:
 
     def on_rsp_user_logout(self, user_logout, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), user_logout, rsp_err_id, rsp_err_msg, request_id, is_last)
+            self.__class__.__name__, get_current_function_name(), user_logout, rsp_err_id, rsp_err_msg, request_id,
+            is_last)
 
     def on_rsp_error(self, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(self.__class__.__name__, get_current_function_name(), rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_order_insert(self, input_order, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), input_order, rsp_err_id, rsp_err_msg, request_id, is_last)
+            self.__class__.__name__, get_current_function_name(), input_order, rsp_err_id, rsp_err_msg, request_id,
+            is_last)
 
     def on_rsp_order_action(self, input_order_action, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), input_order_action, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), input_order_action, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
 
     def on_rsp_qry_order(self, order, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(self.__class__.__name__, get_current_function_name(), order, rsp_err_id, rsp_err_msg, request_id, is_last)
@@ -51,21 +54,24 @@ class TradeSpi:
 
     def on_rsp_qry_investor_position(self, investor_position, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), investor_position, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), investor_position, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
 
     def on_rsp_qry_trading_account(self, trading_account, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), trading_account, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), trading_account, rsp_err_id, rsp_err_msg, request_id,
+            is_last)
 
     def on_rsp_qry_investor(self, investor, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), investor, rsp_err_id, rsp_err_msg, request_id, is_last)
+            self.__class__.__name__, get_current_function_name(), investor, rsp_err_id, rsp_err_msg, request_id,
+            is_last)
 
     def on_rsp_qry_instrument(self, instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+            self.__class__.__name__, get_current_function_name(), instrument, rsp_err_id, rsp_err_msg, request_id,
+            is_last)
 
     def on_rsp_qry_investor_position_detail(self, investor_position_detail, rsp_err_id, rsp_err_msg, request_id,
                                             is_last):
@@ -75,8 +81,9 @@ class TradeSpi:
 
     def on_rsp_qry_investor_trade_level(self, investor_trade_level, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), investor_trade_level, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), investor_trade_level, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
 
     def on_rtn_order(self, order):
         print(self.__class__.__name__, get_current_function_name(), order)
@@ -92,21 +99,24 @@ class TradeSpi:
     def on_rsp_qry_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
                                            is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id, rsp_err_msg,
-        request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id,
+            rsp_err_msg,
+            request_id,
+            is_last)
 
     def on_rsp_settlement_info_confirm(self, settlement_info_confirm_field, rsp_err_id, rsp_err_msg, request_id,
                                        is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id, rsp_err_msg,
-        request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), settlement_info_confirm_field, rsp_err_id,
+            rsp_err_msg,
+            request_id,
+            is_last)
 
     def on_rsp_qry_otp_ins_comm_rate(self, otp_ins_comm_rate, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, get_current_function_name(), otp_ins_comm_rate, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, get_current_function_name(), otp_ins_comm_rate, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
 
 
 class TradeApi:
