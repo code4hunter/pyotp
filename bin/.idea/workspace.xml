@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d652da11-2e79-4f64-8867-5ffd520a02bd" name="Default" comment="">
+      <change type="DELETED" beforePath="G:\source\pyotp\bin\log2\KSInterB2C.lkc" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/KSFlow/20420418_ks31_1_0.dat" afterPath="$PROJECT_DIR$/log/KSFlow/20420418_ks31_1_0.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/KSFlow/20420418_ks31_1_0.idx" afterPath="$PROJECT_DIR$/log/KSFlow/20420418_ks31_1_0.idx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_otp_md.pyd" afterPath="$PROJECT_DIR$/_otp_md.pyd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_otp_trd.pyd" afterPath="$PROJECT_DIR$/_otp_trd.pyd" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.cpp" afterPath="$PROJECT_DIR$/../pyotpext/_otp_trd/_otp_trd.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/bin.iml" afterPath="$PROJECT_DIR$/.idea/bin.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tdapi.py" afterPath="$PROJECT_DIR$/tdapi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/py_tools.cpp" afterPath="$PROJECT_DIR$/../pyotpext/py_tools.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/run-python.bat" afterPath="$PROJECT_DIR$/run-python.bat" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testtrdapi.py" afterPath="$PROJECT_DIR$/testtrdapi.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pyotpext/_otp_trd/trd_wrapper.h" afterPath="$PROJECT_DIR$/../pyotpext/_otp_trd/trd_wrapper.h" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="bin.iws" />
@@ -20,10 +28,10 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/bin$mdapi.coverage" NAME="mdapi Coverage Results" MODIFIED="1429666708271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/bin$testmdapi.coverage" NAME="testmdapi Coverage Results" MODIFIED="1430115531957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/bin$testtrdapi.coverage" NAME="testtrdapi Coverage Results" MODIFIED="1430308367700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/bin$tsttrdapi.coverage" NAME="tsttrdapi Coverage Results" MODIFIED="1430139493665" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bin$testmdapi.coverage" NAME="testmdapi Coverage Results" MODIFIED="1430115531957" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bin$mdapi.coverage" NAME="mdapi Coverage Results" MODIFIED="1429666708271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bin$testtrdapi.coverage" NAME="testtrdapi Coverage Results" MODIFIED="1430383362889" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -40,8 +48,8 @@
       <file leaf-file-name="testtrdapi.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/testtrdapi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="3.079096" vertical-offset="180" max-vertical-offset="2580">
-              <caret line="121" column="65" selection-start-line="121" selection-start-column="65" selection-end-line="121" selection-end-column="65" />
+            <state vertical-scroll-proportion="1.0200927" vertical-offset="720" max-vertical-offset="4290">
+              <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <element signature="e#24#36#0" expanded="true" />
               </folding>
@@ -52,8 +60,8 @@
       <file leaf-file-name="userapidef.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/userapidef.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="7308" max-vertical-offset="19650">
-              <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="5419" max-vertical-offset="19650">
+              <caret line="375" column="40" selection-start-line="375" selection-start-column="40" selection-end-line="375" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -62,10 +70,22 @@
       <file leaf-file-name="tdapi.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tdapi.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.2413793" vertical-offset="1153" max-vertical-offset="3165">
-              <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="91" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="3165">
+              <caret line="27" column="22" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="22" />
               <folding>
                 <element signature="e#20#35#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="mdapi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/mdapi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="941" max-vertical-offset="1290">
+              <caret line="39" column="19" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="19" />
+              <folding>
+                <element signature="e#43#57#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +120,8 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="54" />
     <option name="y" value="-8" />
-    <option name="width" value="1394" />
-    <option name="height" value="916" />
+    <option name="width" value="1320" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -172,7 +192,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.Console Font" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -577,7 +597,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1394" height="916" extended-state="6" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -586,14 +606,13 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30731103" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48296297" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18722786" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18711656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32444444" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48296297" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -601,6 +620,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32967892" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3288889" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -627,11 +647,39 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="15" />
+      <option name="time" value="29" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/testtrdapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2325">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#24#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userapidef.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="7485" max-vertical-offset="19650">
+          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tdapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1305" max-vertical-offset="3015">
+          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="91" selection-end-column="74" />
+          <folding>
+            <element signature="e#20#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/testtrdapi.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2325">
@@ -842,35 +890,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testmdapi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="115" max-vertical-offset="1095">
+          <caret line="29" column="45" selection-start-line="29" selection-start-column="24" selection-end-line="29" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/mdapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.36785161" vertical-offset="238" max-vertical-offset="1290">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="585" max-vertical-offset="1290">
+          <caret line="39" column="19" selection-start-line="39" selection-start-column="6" selection-end-line="39" selection-end-column="19" />
           <folding>
             <element signature="e#43#57#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testmdapi.py">
+    <entry file="file://$USER_HOME$/.PyCharm40/system/python_stubs/-762174762/sys.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="682" max-vertical-offset="1110">
-          <caret line="57" column="18" selection-start-line="49" selection-start-column="8" selection-end-line="57" selection-end-column="18" />
+        <state vertical-scroll-proportion="-16.310606" vertical-offset="6459" max-vertical-offset="6855">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/userapidef.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7308" max-vertical-offset="19650">
-          <caret line="499" column="0" selection-start-line="499" selection-start-column="0" selection-end-line="499" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="5419" max-vertical-offset="19650">
+          <caret line="375" column="40" selection-start-line="375" selection-start-column="40" selection-end-line="375" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tdapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.2413793" vertical-offset="1153" max-vertical-offset="3165">
-          <caret line="87" column="4" selection-start-line="87" selection-start-column="4" selection-end-line="91" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="3165">
+          <caret line="27" column="22" selection-start-line="26" selection-start-column="8" selection-end-line="27" selection-end-column="22" />
           <folding>
             <element signature="e#20#35#0" expanded="true" />
           </folding>
@@ -879,8 +936,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/testtrdapi.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.079096" vertical-offset="180" max-vertical-offset="2580">
-          <caret line="121" column="65" selection-start-line="121" selection-start-column="65" selection-end-line="121" selection-end-column="65" />
+        <state vertical-scroll-proportion="1.0200927" vertical-offset="720" max-vertical-offset="4290">
+          <caret line="92" column="0" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="e#24#36#0" expanded="true" />
           </folding>

@@ -1,1 +1,1 @@
-python.exe
+testtrdapi.py >out.log

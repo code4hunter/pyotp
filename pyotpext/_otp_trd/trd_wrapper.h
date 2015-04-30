@@ -341,7 +341,7 @@ public:
 			PyDict_SetItemString(dict, "InvestorID", Py_BuildValue("s", pInvestorPosition->InvestorID));
 			PyDict_SetItemString(dict, "PosiDirection", Py_BuildValue("c", pInvestorPosition->PosiDirection));
 			PyDict_SetItemString(dict, "HedgeFlag", Py_BuildValue("c", pInvestorPosition->HedgeFlag));
-			PyDict_SetItemString(dict, "PositionDate", Py_BuildValue("s", pInvestorPosition->PositionDate));
+			PyDict_SetItemString(dict, "PositionDate", Py_BuildValue("c", pInvestorPosition->PositionDate));
 			PyDict_SetItemString(dict, "YdPosition", Py_BuildValue("i", pInvestorPosition->YdPosition));
 			PyDict_SetItemString(dict, "Position", Py_BuildValue("i", pInvestorPosition->Position));
 			PyDict_SetItemString(dict, "LongFrozen", Py_BuildValue("i", pInvestorPosition->LongFrozen));

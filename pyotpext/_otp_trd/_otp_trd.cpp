@@ -159,6 +159,7 @@ static PyObject* ReqOrderInsert(PyObject* self, PyObject *args)
 	req.TimeCondition = _get_map_char(map, "TimeCondition");
 	req.VolumeCondition = _get_map_char(map, "VolumeCondition");
 	req.ContingentCondition = _get_map_char(map, "ContingentCondition");
+	req.Direction = _get_map_char(map, "Direction");
 
 	req.LimitPrice = _get_map_double(map, "LimitPrice");
 	req.StopPrice = _get_map_double(map, "StopPrice");
