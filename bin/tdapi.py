@@ -39,12 +39,14 @@ class TradeSpi:
         print(
             self.__class__.__name__, get_current_function_name(), input_order, rsp_err_id, rsp_err_msg, request_id,
             is_last)
+        print(rsp_err_msg.decode('GBK'))
 
     def on_rsp_order_action(self, input_order_action, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
             self.__class__.__name__, get_current_function_name(), input_order_action, rsp_err_id, rsp_err_msg,
             request_id,
             is_last)
+        print(rsp_err_msg.decode('GBK'))
 
     def on_rsp_qry_order(self, order, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(self.__class__.__name__, get_current_function_name(), order, rsp_err_id, rsp_err_msg, request_id, is_last)

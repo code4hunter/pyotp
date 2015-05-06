@@ -13,12 +13,14 @@ global trd_api
 global md_active
 global my_request_id
 global order_ref
+global orders
 
 md_api = None
 trd_api = None
 md_active = False
 my_request_id = 0
 order_ref = 0
+orders = {}
 
 
 class MyMdSpi(mdapi.MarketDataSpi):
@@ -31,7 +33,7 @@ class MyMdSpi(mdapi.MarketDataSpi):
         self._investor_id = investor_id
         self._password = password
 
-        self._orders = {}
+        #self._orders = {}
 
     def on_front_connected(self):
         self._request_id += 1
@@ -48,8 +50,9 @@ class MyMdSpi(mdapi.MarketDataSpi):
 
     def on_rsp_user_login(self, rsp_user_login, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(
-        self.__class__.__name__, tdapi.get_current_function_name(), rsp_user_login, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
+            self.__class__.__name__, tdapi.get_current_function_name(), rsp_user_login, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
         print("login", self._api.get_trading_day())
         print(self._api.subscribe_market_data(self._instruments))
 
@@ -60,8 +63,8 @@ class MyMdSpi(mdapi.MarketDataSpi):
         print("error", rsp_err_id, rsp_err_msg, request_id, is_last)
 
     def on_rsp_sub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
-        print(rsp_err_msg)
-        print("sub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
+        #print(rsp_err_msg.decode('GBK'))
+        #print("sub_market_data", specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last)
         pass
 
     def on_rsp_unsub_market_data(self, specific_instrument, rsp_err_id, rsp_err_msg, request_id, is_last):
@@ -70,25 +73,31 @@ class MyMdSpi(mdapi.MarketDataSpi):
         pass
 
     def on_rtn_depth_market_data(self, depth_market_data):
-        # if '11000071' == depth_market_data['InstrumentID']:
-        return
-        print(depth_market_data)
+        global orders
+        if '11000071' != depth_market_data['InstrumentID']:
+            print(depth_market_data)
 
-        ord_ref = MyTrdSpi.get_next_ord_ref()
-        param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id,
-                 'InstrumentID': depth_market_data['InstrumentID'],
-                 'UserID': self._investor_id, 'OrderRef': ord_ref,
-                 'OrderPriceType': userapidef.KS_OTP_OPT_LimitPrice,
-                 'Direction': userapidef.KS_OTP_D_Buy, 'OffsetFlag': userapidef.KS_OTP_OF_Open,
-                 'HedgeFlag': userapidef.KS_OTP_HF_Speculation, 'LimitPrice': depth_market_data['AskPrice1'],
-                 'VolumeTotalOriginal': 1,
-                 'TimeCondition': userapidef.KS_OTP_TC_GFD, 'VolumeCondition': userapidef.KS_OTP_VC_AV,
-                 'MinVolume': 0, 'ContingentCondition': userapidef.KS_OTP_CC_Immediately, 'StopPrice': 0,
-                 'RequestID': MyTrdSpi.get_next_id()}
+            if len(orders) == 0:
+                ord_ref = MyTrdSpi.get_next_ord_ref()
+                param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id,
+                         'InstrumentID': depth_market_data['InstrumentID'],
+                         'UserID': self._investor_id, 'OrderRef': ord_ref,
+                         'OrderPriceType': userapidef.KS_OTP_OPT_LimitPrice,
+                         'Direction': userapidef.KS_OTP_D_Buy, 'OffsetFlag': userapidef.KS_OTP_OF_Open,
+                         'HedgeFlag': userapidef.KS_OTP_HF_Speculation, 'LimitPrice': depth_market_data['BidPrice5'],
+                         'VolumeTotalOriginal': 1,
+                         'TimeCondition': userapidef.KS_OTP_TC_GFD, 'VolumeCondition': userapidef.KS_OTP_VC_AV,
+                         'MinVolume': 0, 'ContingentCondition': userapidef.KS_OTP_CC_Immediately, 'StopPrice': 0,
+                         'RequestID': MyTrdSpi.get_next_id()}
 
-        if trd_api.req_order_insert(param, param['RequestID']) == 0:
-            print param
-            # self._orders[ord_ref] = param
+                if trd_api.req_order_insert(param, param['RequestID']) == 0:
+                    orders[ord_ref] = param
+                    print '->>>>>>>', orders
+            else:
+                for ref in orders:
+                    param = orders[ref]
+                    pms = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
+                    trd_api.req_qry_order(pms, MyTrdSpi.get_next_id())
 
 
 class MyTrdSpi(tdapi.TradeSpi):
@@ -127,31 +136,32 @@ class MyTrdSpi(tdapi.TradeSpi):
         if not is_last:
             return
         print(
-        self.__class__.__name__, tdapi.get_current_function_name(), rsp_user_login, rsp_err_id, rsp_err_msg, request_id,
-        is_last)
-        # print(rsp_err_msg.decode('GBK'))
+            self.__class__.__name__, tdapi.get_current_function_name(), rsp_user_login, rsp_err_id, rsp_err_msg,
+            request_id,
+            is_last)
+        print(rsp_err_msg.decode('GBK'))
         # print("login", self._api.get_trading_day())
         # print(rsp_user_login['SystemName'].decode('GBK'))
         self._api.subscribe_private_topic(userapidef.KS_OTP_TERT_RESUME)
         self._api.subscribe_public_topic(userapidef.KS_OTP_TERT_RESUME)
 
-        param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id, 'ConfirmDate': ''}
-        self._api.req_settlement_info_confirm(param, self.get_next_id())
+        param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
+        print self._api.req_settlement_info_confirm(param, self.get_next_id())
 
         param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
-        self._api.req_qry_trading_account(param, self.get_next_id())
+        print self._api.req_qry_trading_account(param, self.get_next_id())
 
         param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
-        self._api.req_qry_investor(param, self.get_next_id())
+        print self._api.req_qry_investor(param, self.get_next_id())
 
         param = {'ExchangeID': self._exchange}
-        self._api.req_qry_instrument(param, self.get_next_id())
+        print self._api.req_qry_instrument(param, self.get_next_id())
 
         param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
-        self._api.req_qry_investor_position(param, self.get_next_id())
+        print self._api.req_qry_investor_position(param, self.get_next_id())
 
         param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id}
-        self._api.req_qry_investor_position_detail(param, self.get_next_id())
+        print self._api.req_qry_investor_position_detail(param, self.get_next_id())
 
     def on_rsp_order_insert(self, input_order, rsp_err_id, rsp_err_msg, request_id, is_last):
         print(rsp_err_msg.decode('GBK'))
@@ -226,6 +236,22 @@ class MyTrdSpi(tdapi.TradeSpi):
 
     def get_inst_info(self):
         return self._inst_info
+
+    def on_rsp_qry_order(self, order, rsp_err_id, rsp_err_msg, request_id, is_last):
+        global orders
+
+        if len(order) > 0:
+            #order['VolumeTotalOriginal'] =  order['VolumeTraded']
+            if order['OrderSysID'] != 0:
+                print(
+                    self.__class__.__name__, tdapi.get_current_function_name(), order, rsp_err_id, rsp_err_msg, request_id, is_last)
+                param = {'BrokerID': self._broker_id, 'InvestorID': self._investor_id, 'OrderRef': order['OrderRef'],
+                         'FrontID': order['FrontID'], 'SessionID': order['SessionID'],
+                         'ExchangeID': order['ExchangeID'],
+                         'OrderSysID': order['OrderSysID']}
+                print(self._api.req_order_action(param, self.get_next_id()))
+            if order['OrderStatus'] in (userapidef.KS_OTP_OST_Canceled, userapidef.KS_OTP_OST_AllTraded):
+                orders.clear()
 
 
 def run():
